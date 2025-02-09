@@ -1,9 +1,8 @@
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
-// @ts-expect-error no types are available for this plugin
-import eslintPluginImport from 'eslint-plugin-import'
+import eslintPluginImportX from 'eslint-plugin-import-x'
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 import eslintPluginReact from 'eslint-plugin-react'
-// @ts-expect-error no types are available for this plugin
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 
 /** @type import('typescript-eslint').ConfigArray */
@@ -24,12 +23,10 @@ const tuonoEslintConfig = tseslint.config(
 
   eslint.configs.recommended,
 
-  /* eslint-disable @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access */
-  eslintPluginImport.flatConfigs.recommended,
-  eslintPluginImport.flatConfigs.typescript,
-  /* eslint-enable @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access */
+  eslintPluginImportX.flatConfigs.recommended,
+  eslintPluginImportX.flatConfigs.typescript,
 
-  // eslint-disable-next-line import/no-named-as-default-member
+  // eslint-disable-next-line import-x/no-named-as-default-member
   tseslint.configs.strictTypeChecked,
 
   // @ts-expect-error flat is optional but always defined on runtime
@@ -56,12 +53,7 @@ const tuonoEslintConfig = tseslint.config(
       },
     },
     settings: {
-      'import/parsers': {
-        '@typescript-eslint/parser': ['.ts', '.tsx'],
-      },
-      'import/resolver': {
-        typescript: true,
-      },
+      'import-x/resolver-next': [createTypeScriptImportResolver()],
       react: {
         version: 'detect',
       },
@@ -111,15 +103,15 @@ const tuonoEslintConfig = tseslint.config(
       // #endregion @typescript-eslint
 
       // #region import
-      'import/default': 'error',
-      'import/export': 'error',
-      'import/namespace': 'error',
-      'import/newline-after-import': 'error',
-      'import/no-cycle': 'error',
-      'import/no-duplicates': 'error',
-      'import/no-named-as-default-member': 'error',
-      'import/no-unused-modules': 'error',
-      'import/order': [
+      'import-x/default': 'error',
+      'import-x/export': 'error',
+      'import-x/namespace': 'error',
+      'import-x/newline-after-import': 'error',
+      'import-x/no-cycle': 'error',
+      'import-x/no-duplicates': 'error',
+      'import-x/no-named-as-default-member': 'error',
+      'import-x/no-unused-modules': 'error',
+      'import-x/order': [
         'error',
         {
           'newlines-between': 'always-and-inside-groups',

@@ -32,5 +32,5 @@
     // Completeness
     "skipLibCheck": true
   },
-  "include": ["src", "tuono.config.ts", "postcss.config.js"]
+  "include": ["src", "tuono.config.ts", "postcss.config.js", "eslint.config.js"]
 }

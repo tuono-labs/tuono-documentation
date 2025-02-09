@@ -1,6 +1,6 @@
 import type { JSX, ReactNode } from 'react'
 import { NavLink, type NavLinkProps } from '@mantine/core'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { Link, useRouter } from 'tuono'
 import { IconChevronRight } from '@tabler/icons-react'
 
