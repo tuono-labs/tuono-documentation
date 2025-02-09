@@ -1,0 +1,36 @@
+{
+  "name": "tuono-documentation",
+  "description": "The react/rust fullstack framework documentation",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint .",
+    "format": "prettier  --check --ignore-unknown .",
+    "format:fix": "prettier --write --ignore-unknown .",
+    "types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mantine/code-highlight": "7.16.1",
+    "@mantine/core": "7.16.1",
+    "@mantine/hooks": "7.16.1",
+    "@mdx-js/react": "3.1.0",
+    "@tabler/icons-react": "3.28.1",
+    "clsx": "2.1.1",
+    "posthog-js": "^1.215.5",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remark-gfm": "4.0.0",
+    "tuono": "0.17.7"
+  },
+  "devDependencies": {
+    "@mdx-js/rollup": "3.1.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "postcss": "8.5.1",
+    "postcss-preset-mantine": "1.17.0",
+    "postcss-simple-vars": "7.0.1"
+  },
+  "packageManager": "pnpm@9.15.5+sha512.845196026aab1cc3f098a0474b64dfbab2afe7a1b4e91dd86895d8e4aa32a7a6d03049e2d0ad770bbe4de023a7122fb68c1a1d6e0d033c7076085f9d5d4800d4"
+}

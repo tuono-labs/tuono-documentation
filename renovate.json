@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "schedule": ["on monday"],
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackageNames": [
+        "eslint",
+        "eslint-*",
+        "typescript-eslint",
+        "@eslint/**"
+      ],
+      "groupName": "devDependencies (eslint)"
+    }
+  ]
+}
