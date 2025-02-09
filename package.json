@@ -9,7 +9,8 @@
     "lint:fix": "eslint .",
     "format": "prettier  --check --ignore-unknown .",
     "format:fix": "prettier --write --ignore-unknown .",
-    "types": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check-all": "pnpm run \"/^(typecheck|format|lint)$/\""
   },
   "dependencies": {
     "@mantine/code-highlight": "7.16.1",
