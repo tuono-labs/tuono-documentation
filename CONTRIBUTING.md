@@ -26,7 +26,7 @@
 
 ```sh
 tuono build --static
-cargo run --release 
+cargo run --release
 ```
 
 ## Update `tuono` version in `apps/documentation`
