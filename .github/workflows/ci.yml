@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+concurrency:
+  group: '${{ github.workflow }}-${{ github.head_ref || github.ref }}'
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    name: Check build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install NodeJS Dependencies
+        uses: ./.github/actions/install-node-dependencies
+
+      - name: Setup rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      # ⬇️ Keep in sync with `.github/workflows/deploy.yml`
+      - name: Read tuono version used by the documentation
+        id: get_tuono_version
+        run: |
+          VERSION=$(pnpm ls tuono | grep "tuono " | sed -E 's/.* ([0-9]+\.[0-9]+\.[0-9]+).*/\1/')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Install tuono
+        run: cargo install tuono@${{ steps.get_tuono_version.outputs.version }}
+      # ⬆️
+
+      - name: Build project
+        run: tuono build --static
+
+  code_check:
+    name: Check format, lint and typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install NodeJS Dependencies
+        uses: ./.github/actions/install-node-dependencies
+
+      - name: Check formatting
+        run: pnpm run format
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
+  ci_ok:
+    name: CI OK
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: always()
+    needs: [build, code_check]
+    env:
+      FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
+      CANCELLED: ${{ contains(join(needs.*.result, ','), 'cancelled') }}
+    steps:
+      - name: Check for failure or cancelled jobs result
+        shell: bash
+        run: |
+          echo "Failure: $FAILURE - Cancelled: $CANCELLED"
+          if [ "$FAILURE" = "false" ] && [ "$CANCELLED" = "false" ]; then
+            exit 0
+          else
+            exit 1
+          fi
