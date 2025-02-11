@@ -1,3 +1,6 @@
+# IDE
+.vscode
+
 ## Node related ignores
 node_modules
 
