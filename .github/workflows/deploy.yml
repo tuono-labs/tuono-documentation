@@ -38,15 +38,15 @@ jobs:
       - name: Build project
         run: tuono build --static
 
-      # - name: Deploy
-      #   uses: reggionick/s3-deploy@v4
-      #   with:
-      #     folder: apps/documentation/out/static
-      #     bucket: tuono-documentation
-      #     bucket-region: eu-west-3
-      #     dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-      #     invalidation: /
-      #     delete-removed: true
-      #     no-cache: true
-      #     private: true
-      #     files-to-include: '{.*/**,**}'
+      - name: Deploy
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: out/static
+          bucket: tuono-documentation
+          bucket-region: eu-west-3
+          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
