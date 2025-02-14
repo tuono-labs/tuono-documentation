@@ -8,7 +8,7 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: Descriptions
+      label: Description
       description: A clear and concise description of what you would like to add.
     validations:
       required: true
