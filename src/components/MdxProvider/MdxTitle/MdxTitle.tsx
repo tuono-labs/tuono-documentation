@@ -95,6 +95,7 @@ function getIdFrom(children: ReactNode): string {
       .trim()
       .toLowerCase()
       .replace(/\./g, '-') // some titles (configuration) contain keypath, so replace dots with hyphens
+      .replace(/\//g, '-') // replace slashes with hyphens (for the home page)
       .replace(/[^a-z0-9 -]/g, '') // remove non-alphanumeric characters
       .replace(/\s+/g, '-') // replace spaces with hyphens
       .replace(/-+/g, '-') // remove consecutive hyphens
