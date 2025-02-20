@@ -88,11 +88,11 @@ The same syntax applies also for catch-all dynamic path (i.e. `[...userId]`).
 
 ### `body`
 
-The `body` method allows you to safely get and read the body of a request.
+The `body` method provides a safe way to get and read the body content of an HTTP request.
 
-Here's an example of using `body` to get data from a `POST` request.
+Here's an example of using the `body` method to retrieve data from a `POST` request.
 
-```rust
+```rs
 #[derive(Deserialize)]
 struct MyBody {
    pub field: u8
