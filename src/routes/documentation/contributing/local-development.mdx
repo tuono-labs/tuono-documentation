@@ -164,46 +164,55 @@ The following checks are all run on pull requests automatically.
 
 You can also perform them locally.
 
-## Formatting
+### Rust
 
-For the typescript part you can run:
-
-```sh
-pnpm run format:check && pnpm run -w repo:root:format:check
-```
-
-For the rust codebase run:
+Ensure that all code follows the style guidelines:
 
 ```sh
 cargo fmt
 ```
 
-### Linting
-
-For the typescript part you can run:
-
-```sh
-pnpm run lint
-```
-
-For the rust codebase run:
+Check that no linting errors/warnings are present:
 
 ```sh
 cargo clippy -- -D warnings
 ```
 
-### Tests
-
-For the typescript part you can run:
-
-```sh
-pnpm run test
-```
-
-For the rust codebase run:
+Tests:
 
 ```sh
 cargo test
+```
+
+### Typescript
+
+TypeScript checks are composed of the following:
+
+- `build`
+- `format`
+- `lint`
+- `typecheck`
+- `test`
+
+You can run them singularly using `pnpm run CHECK` or by using the `check-all` script:
+
+```sh
+pnpm run check-all
+```
+
+### E2E Tests
+
+To execute end-to-end tests, we are using [playwright](https://playwright.dev).
+To install the required browsers, run:
+
+```sh
+pnpm exec playwright install
+```
+
+Then, you can run the tests with:
+
+```sh
+pnpm run test:e2e
 ```
 
 import NavigationButtons from '../../../components/NavigationButtons'
