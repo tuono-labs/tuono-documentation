@@ -88,7 +88,7 @@ The same syntax applies also for catch-all dynamic path (i.e. `[...userId]`).
 
 ### `body`
 
-The `body` method provides a safe way to get and read the body content of an HTTP request.
+The `body` method provides a safe way to read and parse the body of an HTTP request.
 
 Here's an example of using the `body` method to retrieve data from a `POST` request.
 
@@ -103,3 +103,5 @@ async fn my_post_request(req: Request) -> impl IntoResponse {
     let body: MyBody = req.body().unwrap();
 }
 ```
+
+> Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
