@@ -174,6 +174,11 @@ export const sidebarElements: Array<SidebarElement> = [
       },
     ],
   },
+  {
+    type: 'element',
+    label: 'Environment Variables',
+    href: '/documentation/environment-variables',
+  },
   { type: 'divider' },
   { type: 'title', label: 'API reference' },
   {

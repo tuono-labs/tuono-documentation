@@ -9,6 +9,66 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 <Breadcrumbs breadcrumbs={[{ label: 'Environment Variables' }]} />
 
-# Configuration
+# Environment Variables
 
 ## Overview
+
+Tuono supports environment variables on both client and server, providing hot reload in both scenarios.
+
+- Loads from `.env.*` files
+- Manages precedence across multiple env files
+- Supports hot reload on both client and server
+- Bundles client env vars with the `TUONO_PUBLIC_` prefix
+
+## Usage
+
+Define your environment variables in `.env` file(s). Here we will use a `.env` and a `.env.local`.
+
+```
+# .env
+foo
+```
+
+```
+# .env.local
+
+```
+
+Here, variables set in `.env.local` will override variables set in `.env`. We cover this in more detail in the [precedence section](#precedence).
+
+### Clientside
+
+
+
+### Serverside
+
+Environment variables are automatically loaded into the rust environment, allowing you to use them just like you would use a system environment variable in any other rust codebase.
+
+```rs
+use std::env;
+use tuono_lib::Request;
+use tuono_lib::axum::http::StatusCode;
+
+#[tuono_lib::api(GET)]
+pub async fn health_check(_req: Request) -> StatusCode {
+    println!("{}", env::var("DATABASE_URL").expect("DATABASE_URL not set"));
+    StatusCode::OK
+}
+```
+
+## File Types and Precedence
+
+System environment variables take priority, and are never overridden. After that, precedence works in order of specificity, with the most specific env file taking priority.
+
+```text
+.env                # loaded in all cases
+.env.local          # loaded in all cases, ignored by git
+.env.[mode]         # only loaded in specified mode
+.env.[mode].local   # only loaded in specified mode, ignored by git
+```
+
+
+## Caveats, Gotchas and Notes
+
+- Secrets should only be stored in `*.local` files, as those are the only files ignored by git.
+- When you create a new env file, it is not automatically loaded. You will have to restart the server to achieve this.
