@@ -2,7 +2,7 @@ import MetaTags from '@/components/MetaTags'
 
 <MetaTags
   title="Tuono - useRouter"
-  canonical="https://tuono.dev/documentation/hooks/use-router"
+  canonical="https://tuono.dev/documentation/functions/use-router"
 />
 
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -51,6 +51,16 @@ Handles client side page navigation quickly. Useful for internal links, or for w
 ```ts
 router.push(path, options)
 ```
+
+### `router.replace`
+
+Handles client side page navigation in the same way as `router.push`, but it will replace the current entry in the browser history stack.
+
+```ts
+router.replace(path, options)
+```
+
+## Router methods parameters
 
 | Name             | Type                | Default value | Description                                                       |
 | ---------------- | ------------------- | ------------- | ----------------------------------------------------------------- |
