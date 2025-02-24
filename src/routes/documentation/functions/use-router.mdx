@@ -2,7 +2,7 @@ import MetaTags from '@/components/MetaTags'
 
 <MetaTags
   title="Tuono - useRouter"
-  canonical="https://tuono.dev/documentation/functions/use-router"
+  canonical="https://tuono.dev/documentation/hooks/use-router"
 />
 
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -65,5 +65,5 @@ router.replace(path, options)
 | Name             | Type                | Default value | Description                                                       |
 | ---------------- | ------------------- | ------------- | ----------------------------------------------------------------- |
 | `path`           | `string` (Required) | -             | The path of the page you want to navigate to.                     |
-| `options`        | `PushOptions`       | -             | Optional config object for additional control.                    |
+| `options`        | `NavigationOptions` | -             | Optional config object for additional control.                    |
 | `options.scroll` | `boolean`           | `true`        | If `false` the scroll offset will be kept across page navigation. |
