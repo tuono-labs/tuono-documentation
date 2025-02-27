@@ -28,6 +28,8 @@ async fn my_route_handler(req: Request) -> Response {
 
 > The `Request` argument is required and must always be defined.
 
+## Fields
+
 The struct has the following three public fields:
 
 ```rs
@@ -81,3 +83,25 @@ async fn my_route_handler(req: Request) -> Response {
 ```
 
 The same syntax applies also for catch-all dynamic path (i.e. `[...userId]`).
+
+## Methods
+
+### `body`
+
+The `body` method provides a safe way to read and parse the body of an HTTP request.
+
+Here's an example of using the `body` method to retrieve data from a `POST` request.
+
+```rs
+#[derive(Deserialize)]
+struct MyBody {
+   pub field: u8
+}
+
+#[tuono_lib::api(POST)]
+async fn my_post_request(req: Request) -> impl IntoResponse {
+    let body: MyBody = req.body().unwrap();
+}
+```
+
+> Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
