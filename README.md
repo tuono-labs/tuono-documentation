@@ -1,4 +1,4 @@
-[Discord](https://discord.com/invite/khQzPa654B) | [Contributing](https://tuono.dev/documentation/contributing)
+[Discord](https://discord.com/invite/khQzPa654B) | [Contributing](./CONTRIBUTING)
 
 # Tuono documentation
 
