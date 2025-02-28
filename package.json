@@ -23,7 +23,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "remark-gfm": "4.0.0",
-    "tuono": "0.17.7"
+    "tuono": "0.17.10"
   },
   "devDependencies": {
     "@eslint/js": "9.21.0",
