@@ -41,7 +41,7 @@ Once you've completed and tested your code, you can create a PR to merge your ch
 
 Refer to [Tuono Contributing > Pull request](https://tuono.dev/documentation/contributing/pull-requests) for more information on how to open a PR.
 
-## Update `tuono` version in `apps/documentation`
+## Update `tuono` version
 
 Update `tuono` version in the following files
 
