@@ -38,7 +38,7 @@ export default function PokemonLink({
   name,
 }: PokemonLinkProps): JSX.Element {
   return (
-    <Link href={`/pokemons/${name}`} className={styles.link} id={id.toString()}>
+    <Link href={`/pokemons/${name}`} id={id.toString()}>
       {name}
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
@@ -58,9 +58,10 @@ Now that the component is ready, import it and use it in the `index.tsx` file
 
 // ...
       <ul style={{ flexWrap: "wrap", display: "flex", gap: 10 }}>
-        {pokemons.map((pokemon, i) => (
---        <li key={i + 1}>{pokemon.name}</li>
-++        <PokemonLink key={i + 1} name={pokemon.name} id={i + 1} />
+--      {pokemons.map((pokemon) => (
+--        <li key={pokemon.name}>{pokemon.name}</li>
+++      {pokemons.map((pokemon, i) => (
+++        <PokemonLink id={i + 1} key={pokemon.name} name={pokemon.name} />
         })}
       </ul>
 // ...
