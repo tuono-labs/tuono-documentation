@@ -17,11 +17,11 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 # Components
 
-## Creating a stand-alone component
+## Creating a standalone component
 
-Let’s then create the button needed for displaying the list of Pokémon.
+Let’s start by creating a link component to display each Pokémon in the list.
 
-Create the following file `src/components/PokemonLink.tsx` and fill the content with:
+Create the `src/components/PokemonLink.tsx` file and paste the following content:
 
 ```tsx
 // src/components/PokemonLink.tsx
@@ -49,7 +49,7 @@ export default function PokemonLink({
 }
 ```
 
-Now that the link is done, let’s import it into the `index.tsx` file
+Now that the component is ready, import it and use it in the `index.tsx` file
 
 ```diff
 // src/routes/index.tsx
@@ -66,12 +66,12 @@ Now that the link is done, let’s import it into the `index.tsx` file
 // ...
 ```
 
-Now the links work. Clicking on any of them, we get redirected to the 404 page because we haven’t yet implemented the `pokemons/[pokemon]` page.
-As previously said, CSS modules are enabled out of the box, so let’s make those links a little bit nicer.
+Now we have working links! If you click them, you're redirected to a blank page because the `pokemons/[pokemon]` route is not implemented yet.
 
-## Styling the component
+## Styling a component
 
-Create alongside the `PokemonLink.tsx` component the CSS module `PokemonLink.module.css` and copy the following content into it:
+As already mentioned, CSS modules are supported out of the box, so let’s make the links more presentable.
+Create the `PokemonLink.module.css` stylesheet alongside `PokemonLink.tsx` and paste the following content:
 
 ```css
 /* src/components/PokemonLink.module.css */
@@ -104,9 +104,9 @@ Create alongside the `PokemonLink.tsx` component the CSS module `PokemonLink.mod
 }
 ```
 
-> 💡 SASS is supported out of the box. Just install the processor in the devDependencies `npm i -D sass` and run again `tuono dev`
+> 💡 SASS is supported out of the box. Just install the processor in the `devDependencies` with `npm i -D sass` and run `tuono dev` again
 
-Then import the styles into the `PokemonLink` component as following:
+Then import the styles in the `PokemonLink` component:
 
 ```diff
 // src/components/PokemonLink.tsx
