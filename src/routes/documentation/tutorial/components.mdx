@@ -61,13 +61,14 @@ Now that the component is ready, import it and use it in the `index.tsx` file
 --      {pokemons.map((pokemon) => (
 --        <li key={pokemon.name}>{pokemon.name}</li>
 ++      {pokemons.map((pokemon, i) => (
-++        <PokemonLink id={i + 1} key={pokemon.name} name={pokemon.name} />
+++        <PokemonLink key={pokemon.name} id={i + 1} name={pokemon.name} />
         })}
       </ul>
 // ...
 ```
 
-Now we have working links! If you click them, you're redirected to a blank page because the `pokemons/[pokemon]` route is not implemented yet.
+Now we have working links! 
+However, clicking on them won't work yet because the `pokemons/[pokemon]` route hasn't been implemented.
 
 ## Styling a component
 
@@ -105,9 +106,9 @@ Create the `PokemonLink.module.css` stylesheet alongside `PokemonLink.tsx` and p
 }
 ```
 
-> 💡 SASS is supported out of the box. Just install the processor in the `devDependencies` with `npm i -D sass` and run `tuono dev` again
+> 💡 SASS is supported out of the box. Just install the processor in the `devDependencies` with `npm i -D sass-embedded` and run `tuono dev` again
 
-Then import the styles in the `PokemonLink` component:
+Then import the styles in the `PokemonLink` component and provide them via the `className` prop to the `Link` component:
 
 ```diff
 // src/components/PokemonLink.tsx
