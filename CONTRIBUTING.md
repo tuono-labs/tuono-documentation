@@ -2,25 +2,31 @@
 
 ##  Setup repository
 
-- Clone the repo
+1. Clone the repo
 
-- Install tuono
+2. Install tuono
 
-  ```sh
-  cargo install tuono
-  ```
+   ```sh
+   cargo install tuono
+   ```
 
-- Install JS dependencies
+3. Install JS dependencies
 
-  ```sh
-  pnpm i
-  ```
+   ```sh
+   pnpm i
+   ```
 
-- Run dev server
+4. Ensure that installation has been completed successfully
 
-  ```sh
-  tuono dev
-  ```
+   ```sh
+   pnpm run check-all
+   ```
+
+5. Run dev server
+
+   ```sh
+   tuono dev
+   ```
 
 ## Test production site
 
@@ -29,7 +35,13 @@ tuono build --static
 cargo run --release
 ```
 
-## Update `tuono` version in `apps/documentation`
+## Creating a Pull Request
+
+Once you've completed and tested your code, you can create a PR to merge your changes.
+
+Refer to [Tuono Contributing > Pull request](https://tuono.dev/documentation/contributing/pull-requests) for more information on how to open a PR.
+
+## Update `tuono` version
 
 Update `tuono` version in the following files
 
