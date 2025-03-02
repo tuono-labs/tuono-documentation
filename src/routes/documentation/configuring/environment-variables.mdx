@@ -24,21 +24,32 @@ Tuono supports environment variables on both client and server, providing hot re
 
 Define your environment variables in `.env` file(s). Here we will use a `.env` and a `.env.local`.
 
-```
+```env
 # .env
-foo
+MY_KEY=foo
+MY_DUPLICATED_KEY=env
+MY_QUOTED_KEY="bar"
+TUONO_PUBLIC_MY_PUBLIC_KEY=public_value
 ```
 
-```
+```env
 # .env.local
-
+MY_DUPLICATED_KEY=local
+MY_SECRET=some_secret
 ```
 
 Here, variables set in `.env.local` will override variables set in `.env`. We cover this in more detail in the [precedence section](#precedence).
 
 ### Clientside
 
+Tuono makes any environment variable starting with the `TUONO_PUBLIC_` prefix available to the client on the `import.meta.env` object. Here's a usage example:
 
+```ts
+console.log(import.meta.env.TUONO_PUBLIC_SOME_KEY) // "123"
+console.log(import.meta.env.DB_PASSWORD) // undefined
+```
+
+Note that variables starting with the `TUONO_PUBLIC_` prefix will end up in your client bundle - therefore these variables should **not** contain any sensitive or secret values.
 
 ### Serverside
 
