@@ -29,8 +29,13 @@ const tuonoEslintConfig = tseslint.config(
   // eslint-disable-next-line import-x/no-named-as-default-member
   tseslint.configs.strictTypeChecked,
 
-  // @ts-expect-error flat is optional but always defined on runtime
-  eslintPluginReact.configs.flat.recommended,
+  {
+    ...eslintPluginReact.configs.flat.recommended,
+    rules: {
+      ...eslintPluginReact.configs.flat.recommended.rules,
+      'react/jsx-no-useless-fragment': 'error',
+    },
+  },
   eslintPluginReact.configs.flat['jsx-runtime'],
 
   {
