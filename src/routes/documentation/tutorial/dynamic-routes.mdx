@@ -91,11 +91,7 @@ export default function PokemonPage({
         </>
       )}
 
-      {data?.id && (
-        <>
-          <PokemonView pokemon={data} />
-        </>
-      )}
+      {data?.id && <PokemonView pokemon={data} />}
     </div>
   )
 }
