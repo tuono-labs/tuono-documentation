@@ -17,17 +17,17 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 # Dynamic routes
 
-## Create the Pokémon route
+## Creating a dynamic route
 
-The homepage is ready. We have the full list of Pokémon and they are all links. Great!
+The homepage is ready with a full list of Pokémon. Good job!
 
-Now we want to make those links actually point to a real page. Let’s create the dynamic route.
+Now let's make the links point to an actual page by creating a new dynamic route.
 
-Create the folder `routes/pokemons` and then create the two files `[pokemon].tsx` and `[pokemon].rs`.
+Create the folder `routes/pokemons` and add two new files: `[pokemon].tsx` and `[pokemon].rs`.
 
-These two will handle every request that points to `http://localhost:3000/pokemons/bulbasaur..mew`.
+The new route will handle every request that points to e.g. `http://localhost:3000/pokemons/bulbasaur`.
 
-Let’s first work on the server side file. Paste into the new `[pokemon].rs` file the following code:
+Start with the server-side file by pasting the following content into `[pokemon].rs`:
 
 ```rs
 // src/routes/pokemons/[pokemon].rs
@@ -60,7 +60,7 @@ async fn get_pokemon(req: Request, fetch: Client) -> Response {
 }
 ```
 
-Then let’s work on the frontend. Paste into the `[pokemon].tsx` file the following code:
+For the interface, paste the following snippet in `[pokemon].tsx`:
 
 ```tsx
 // src/routes/pokemons/[pokemon].tsx
@@ -97,7 +97,7 @@ export default function PokemonPage({
 }
 ```
 
-The browser should complain that the component `PokemonView` does not exist. Let’s create it then!
+You should now get an error saying that the `PokemonView` component does not exist. Let’s create it!
 
 ```tsx
 // src/components/PokemonView.tsx
@@ -141,7 +141,7 @@ export default function PokemonView({
 }
 ```
 
-To have the proper style consider adding a new css module file:
+And let's add a stylesheet to give the finishing touch:
 
 ```css
 /* src/components/PokemonView.module.css */
