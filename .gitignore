@@ -26,4 +26,4 @@ lerna-debug.log*
 .tuono
 out
 target
-.local
+.env*.local
