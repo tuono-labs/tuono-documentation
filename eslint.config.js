@@ -3,7 +3,7 @@ import tseslint from 'typescript-eslint'
 import eslintPluginImportX from 'eslint-plugin-import-x'
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 import eslintPluginReact from 'eslint-plugin-react'
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
+import * as eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 
 /** @type import('typescript-eslint').ConfigArray */
 const tuonoEslintConfig = tseslint.config(
@@ -36,7 +36,6 @@ const tuonoEslintConfig = tseslint.config(
   {
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       'react-hooks': eslintPluginReactHooks,
     },
     rules: {
