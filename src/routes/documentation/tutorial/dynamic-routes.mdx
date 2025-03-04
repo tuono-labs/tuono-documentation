@@ -21,9 +21,12 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 The homepage is ready with a full list of Pokémon. Good job!
 
-Now let's make the links point to an actual page by creating a new dynamic route.
+Now, let's make the links point to an actual page by creating a new dynamic route.
 
-Create the folder `routes/pokemons` and add two new files: `[pokemon].tsx` and `[pokemon].rs`.
+Create the `routes/pokemons` folder and add the following files inside it:
+
+- `[pokemon].rs`
+- `[pokemon].tsx`
 
 The new route will handle every request that points to e.g. `http://localhost:3000/pokemons/bulbasaur`.
 
@@ -141,7 +144,7 @@ export default function PokemonView({
 }
 ```
 
-And let's add a stylesheet to give the finishing touch:
+Finally, let's add a stylesheet to complete the look:
 
 ```css
 /* src/components/PokemonView.module.css */
