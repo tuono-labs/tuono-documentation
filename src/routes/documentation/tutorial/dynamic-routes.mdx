@@ -30,6 +30,8 @@ Create the `routes/pokemons` folder and add the following files inside it:
 
 The new route will handle every request that points to e.g. `http://localhost:3000/pokemons/bulbasaur`.
 
+## Implementing a server-side route
+
 Start with the server-side file by pasting the following content into `[pokemon].rs`:
 
 ```rs
@@ -62,6 +64,8 @@ async fn get_pokemon(req: Request, fetch: Client) -> Response {
     };
 }
 ```
+
+## Implementing a client-side route
 
 For the interface, paste the following snippet in `[pokemon].tsx`:
 
