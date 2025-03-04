@@ -17,7 +17,6 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 # Dynamic routes
 
-## Creating a dynamic route
 
 The homepage is ready with a full list of Pokémon. Good job!
 
@@ -28,7 +27,8 @@ Create the `routes/pokemons` folder and add the following files inside it:
 - `[pokemon].rs`
 - `[pokemon].tsx`
 
-The new route will handle every request that points to e.g. `http://localhost:3000/pokemons/bulbasaur`.
+The new route will handle any request that points to a path in the `/pokemons/SOME_POKEMON` format.
+Example URL: `http://localhost:3000/pokemons/bulbasaur`.
 
 ## Implementing a server-side route
 
@@ -67,7 +67,7 @@ async fn get_pokemon(req: Request, fetch: Client) -> Response {
 
 ## Implementing a client-side route
 
-For the interface, paste the following snippet in `[pokemon].tsx`:
+To set up the route client-side, simply paste the following code snippet into the `[pokemon].tsx` file.
 
 ```tsx
 // src/routes/pokemons/[pokemon].tsx
