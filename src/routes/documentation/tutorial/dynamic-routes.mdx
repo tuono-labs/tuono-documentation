@@ -149,10 +149,15 @@ To have the proper style consider adding a new css module file:
 
 ```css
 /* src/components/PokemonView.module.css */
+/* src/components/PokemonView.module.css */
 .pokemon {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 16px 32px;
+  background: white;
 }
 
 .name {
@@ -161,13 +166,18 @@ To have the proper style consider adding a new css module file:
 }
 
 .pokemon img {
-  width: 400px;
+  width: 250px;
+  height: 100%;
 }
 
 .spec {
   display: flex;
   font-size: 18px;
   margin-top: 10px;
+
+  > dt {
+    margin-right: 6px;
+  }
 }
 
 .label {
