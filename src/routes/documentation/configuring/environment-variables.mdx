@@ -38,7 +38,7 @@ MY_DUPLICATED_KEY=local
 MY_SECRET=some_secret
 ```
 
-Here, variables set in `.env.local` will override variables set in `.env`. We cover this in more detail in the [precedence section](#precedence).
+Here, variables set in `.env.local` will override variables set in `.env`. We cover this in more detail in the [modes section](#mode-specific-env-files).
 
 ### Clientside
 
@@ -67,11 +67,7 @@ pub async fn health_check(_req: Request) -> StatusCode {
 }
 ```
 
-## Environment Specific Env Files
-
-TODO
-
-## File Types and Precedence
+## Mode-Specific Env Files
 
 System environment variables take priority, and are never overridden. After that, precedence works in order of specificity, with the most specific env file taking priority.
 
