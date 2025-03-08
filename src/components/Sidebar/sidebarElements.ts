@@ -174,18 +174,6 @@ export const sidebarElements: Array<SidebarElement> = [
       },
     ],
   },
-  {
-    type: 'element',
-    label: 'Configuring',
-    href: '#focus',
-    children: [
-      {
-        type: 'element',
-        label: 'Environment Variables',
-        href: '/documentation/configuring/environment-variables',
-      },
-    ],
-  },
   { type: 'divider' },
   { type: 'title', label: 'API reference' },
   {
@@ -243,6 +231,11 @@ export const sidebarElements: Array<SidebarElement> = [
     type: 'element',
     label: 'Application state',
     href: '/documentation/application-state',
+  },
+  {
+    type: 'element',
+    label: 'Environment Variables',
+    href: '/documentation/environment-variables',
   },
   {
     type: 'element',
