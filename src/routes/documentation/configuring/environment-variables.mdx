@@ -2,6 +2,7 @@ import MetaTags from '@/components/MetaTags'
 
 <MetaTags
   title="Tuono - Environment Variables"
+  description="Learn to add and access environment variables in your Tuono application"
   canonical="https://tuono.dev/documentation/environment-variables"
 />
 
@@ -13,16 +14,18 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 ## Overview
 
-Tuono supports environment variables on both client and server, providing hot reload in both scenarios.
+Tuono supports environment variables for both the client and server, with hot reload functionality in each scenario.
 
-- Loads from `.env.*` files
-- Manages precedence across multiple env files
-- Supports hot reload on both client and server
-- Bundles client env vars with the `TUONO_PUBLIC_` prefix
+Key features include:
+
+- Loading from `.env.*` files
+- Managing precedence across multiple env files
+- Supporting hot reload on both client and server
+- Bundling client env vars with the `TUONO_PUBLIC_` prefix
 
 ## Usage
 
-Define your environment variables in `.env` file(s). Here we will use a `.env` and a `.env.local`.
+Define your environment variables in `.env` file(s). For example, you can use a `.env` file and a `.env.local` file.
 
 ```env
 # .env
@@ -38,11 +41,13 @@ MY_DUPLICATED_KEY=local
 MY_SECRET=some_secret
 ```
 
-Here, variables set in `.env.local` will override variables set in `.env`. We cover this in more detail in the [modes section](#mode-specific-env-files).
+Variables set in `.env.local` will override those in `.env`. For more information on this behaviour, refer to the [modes section](#mode-specific-env-files).
 
-### Clientside
+### Client-side
 
-Tuono makes any environment variable starting with the `TUONO_PUBLIC_` prefix available to the client on the `import.meta.env` object. Here's a usage example:
+Tuono exposes any environment variable that starts with the `TUONO_PUBLIC_` prefix to the client via the `import.meta.env` object. 
+
+Here’s an example of how to use it:
 
 ```ts
 console.log(import.meta.env.TUONO_PUBLIC_SOME_KEY) // "123"
@@ -51,9 +56,9 @@ console.log(import.meta.env.DB_PASSWORD) // undefined
 
 Note that variables starting with the `TUONO_PUBLIC_` prefix will end up in your client bundle - therefore these variables should **not** contain any sensitive or secret values.
 
-### Serverside
+### Server-side
 
-Environment variables are automatically loaded into the rust environment, allowing you to use them just like you would use a system environment variable in any other rust codebase.
+Environment variables are automatically loaded into the Rust environment, allowing you to use them just like you would use any other system environment variable in any other rust codebase.
 
 ```rs
 use std::env;
@@ -69,7 +74,7 @@ pub async fn health_check(_req: Request) -> StatusCode {
 
 ## Mode-Specific Env Files
 
-System environment variables take priority, and are never overridden. After that, precedence works in order of specificity, with the most specific env file taking priority.
+System environment variables take priority, and are never overridden. After that, precedence is determined by specificity, with the most specific env files taking priority.
 
 ```text
 .env                # loaded in all cases
@@ -81,4 +86,4 @@ System environment variables take priority, and are never overridden. After that
 ## Caveats, Gotchas and Notes
 
 - Secrets should only be stored in `*.local` files, as those are the only files ignored by git.
-- When you create a new env file, it is not automatically loaded. You will have to restart the server to achieve this.
+- When you create a new env file, it is **not** automatically loaded. You will have to restart the server for the changes to take effect.
