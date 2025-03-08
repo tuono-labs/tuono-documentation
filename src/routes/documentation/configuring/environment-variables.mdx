@@ -54,7 +54,7 @@ console.log(import.meta.env.TUONO_PUBLIC_SOME_KEY) // "123"
 console.log(import.meta.env.DB_PASSWORD) // undefined
 ```
 
-Note that variables starting with the `TUONO_PUBLIC_` prefix will end up in your client bundle - therefore these variables should **not** contain any sensitive or secret values.
+> ⚠️ Note that variables starting with the `TUONO_PUBLIC_` prefix will be included in your client bundle, and as such, these variables should **not** contain any sensitive or secret values.
 
 ### Server-side
 
