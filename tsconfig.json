@@ -13,7 +13,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["tuono/build-client"],
+    "types": ["tuono/build-client", "@types/node"],
 
     // Emit
     "noEmit": true,
