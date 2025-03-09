@@ -1,8 +1,7 @@
 interface ImportMetaEnv {
-  readonly VITE_PUBLIC_POSTHOG_KEY: string
-  readonly VITE_PUBLIC_POSTHOG_HOST: string
-  readonly VITE_ENV: 'production' | 'development'
-  readonly VITE_ENABLE_POSTHOG: 'true' | 'false'
+  readonly TUONO_PUBLIC_POSTHOG_KEY: string
+  readonly TUONO_PUBLIC_POSTHOG_HOST: string
+  readonly TUONO_PUBLIC_POSTHOG_ENABLE: 'true' | 'false'
 }
 
 interface ImportMeta {
