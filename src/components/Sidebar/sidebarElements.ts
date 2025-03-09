@@ -234,6 +234,11 @@ export const sidebarElements: Array<SidebarElement> = [
   },
   {
     type: 'element',
+    label: 'Environment Variables',
+    href: '/documentation/environment-variables',
+  },
+  {
+    type: 'element',
     label: 'Configuration',
     href: '/documentation/configuration',
   },
