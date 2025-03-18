@@ -1,0 +1,47 @@
+name: Deploy on Netlify
+
+on:
+  push:
+    branches:
+      - 'feature/documentation-revamp'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install NodeJS Dependencies
+        uses: ./.github/actions/install-node-dependencies
+
+      - name: Setup rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Read tuono version used by the documentation
+        id: get_tuono_version
+        run: |
+          VERSION=$(pnpm ls tuono | grep "tuono " | sed -E 's/.* ([0-9]+\.[0-9]+\.[0-9]+).*/\1/')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Install tuono
+        run: cargo install tuono@${{ steps.get_tuono_version.outputs.version }}
+
+      - name: Build project
+        run: tuono build --static
+
+      - name: Install netlify-cli
+        run: pnpm install -g netlify-cli
+
+      - name: Deploy
+        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_SECRET }}
+          NETLIFY_DEPLOY_TO_PROD: true
+          NETLIFY_SITE_ID: 'e642f442-04dc-4ca6-919b-e941eb9781f7'
+          build_directory: out/static
+          debug: true
+          install_command: 'echo Skipping installing the dependencies'
+          build_command: 'echo Already built'
