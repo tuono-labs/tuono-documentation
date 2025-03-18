@@ -51,15 +51,28 @@ async fn my_custom_ssr_page(req: Request) -> Response {
 }
 ```
 
-Then you will be able to read the loaded data on the route in the route's `data` props:
+Once the data is loaded, you can access it through the `data` prop on the route.
+
+To describe the structure of the props in TypeScript, you can use the `TuonoRouteProps` type.
+This type is designed to handle loading states in an application,
+making it easy to distinguish between when the data is still loading
+and when it has been successfully fetched and is ready to be used.
 
 ```tsx
 // src/routes/about.tsx
-import type { TuonoProps } from 'tuono'
+import type { TuonoRouteProps } from 'tuono'
 
-export default function AbouteRoute({ data }: TuonoProps) {
-  // ...
+interface MyData {
+  name: string
+}
+
+export default function AboutRoute({ isLoading, data }: TuonoRouteProps<MyData>) {
+  if (isLoading) {
+    // data is `null`
+    return <>Loading...</>
+  }
+
+  // data is `MyData` type
+  return <>{JSON.stringify(data)</>
 }
 ```
-
-> `TuonoProps<T>` takes a generic argument to statically type `data`.
