@@ -66,13 +66,14 @@ interface MyData {
   name: string
 }
 
-export default function AboutRoute({ isLoading, data }: TuonoRouteProps<MyData>) {
+export default function AboutRoute({
+  isLoading,
+  data,
+}: TuonoRouteProps<MyData>) {
   if (isLoading) {
-    // data is `null`
     return <>Loading...</>
   }
 
-  // data is `MyData` type
-  return <>{JSON.stringify(data)</>
+  return <>{data.name}</>
 }
 ```
