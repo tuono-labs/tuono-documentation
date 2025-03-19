@@ -6,15 +6,6 @@ import MetaTags from '@/components/MetaTags'
   description="Learn how to catch more endpoint with the same route loading dynamic data"
 />
 
-import Breadcrumbs from '@/components/Breadcrumbs'
-
-<Breadcrumbs
-  breadcrumbs={[
-    { label: 'Tutorial', href: '/documentation/tutorial' },
-    { label: 'Dynamic routes' },
-  ]}
-/>
-
 # Dynamic routes
 
 The homepage is ready with a full list of Pokémon. Good job!
@@ -184,13 +175,3 @@ Finally, let's add a stylesheet to complete the look:
   font-weight: 700;
 }
 ```
-
-import NavigationButtons from '../../../components/NavigationButtons'
-
-<NavigationButtons
-  prev={{ title: 'Components', href: '/documentation/tutorial/components' }}
-  next={{
-    title: 'Error handling',
-    href: '/documentation/tutorial/error-handling',
-  }}
-/>

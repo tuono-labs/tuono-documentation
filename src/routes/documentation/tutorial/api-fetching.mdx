@@ -6,15 +6,6 @@ import MetaTags from '@/components/MetaTags'
   description="Learn how to fetch remote APIs on the backend"
 />
 
-import Breadcrumbs from '@/components/Breadcrumbs'
-
-<Breadcrumbs
-  breadcrumbs={[
-    { label: 'Tutorial', href: '/documentation/tutorial' },
-    { label: 'API fetching' },
-  ]}
-/>
-
 # API fetching
 
 In this tutorial, we will fetch a list of all first generation Pokémon (the best ones, by the way) from the [PokeAPI](https://pokeapi.co/docs/v2) and create a dynamic page for each of them.
@@ -183,13 +174,3 @@ export default function IndexPage({
 ```
 
 Time to refresh the browser! It's still a bit ugly, but all the Pokémon are finally on the screen!
-
-import NavigationButtons from '../../../components/NavigationButtons'
-
-<NavigationButtons
-  prev={{
-    title: 'Development setup',
-    href: '/documentation/tutorial/development-setup',
-  }}
-  next={{ title: 'Components', href: '/documentation/tutorial/components' }}
-/>

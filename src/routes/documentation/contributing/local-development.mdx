@@ -6,15 +6,6 @@ import MetaTags from '@/components/MetaTags'
   description="Contribute to Tuono. Learn here how to setup the repository for local development"
 />
 
-import Breadcrumbs from '@/components/Breadcrumbs'
-
-<Breadcrumbs
-  breadcrumbs={[
-    { label: '✨ Contributing', href: '/documentation/contributing' },
-    { label: 'Local development' },
-  ]}
-/>
-
 # Local development
 
 Thanks for your interest! In this page, you find the instructions to set up `tuono` on your local environment!
@@ -214,16 +205,3 @@ Then, you can run the tests with:
 ```sh
 pnpm run test:e2e
 ```
-
-import NavigationButtons from '../../../components/NavigationButtons'
-
-<NavigationButtons
-  prev={{
-    title: 'Guidelines',
-    href: '/documentation/contributing',
-  }}
-  next={{
-    title: 'Pull requests',
-    href: '/documentation/contributing/pull-requests',
-  }}
-/>
