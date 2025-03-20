@@ -1,0 +1,131 @@
+import MetaTags from '@/components/MetaTags'
+
+<MetaTags
+  title="Tuono - Components"
+  canonical="https://tuono.dev/documentation/tutorial/components"
+  description="Learn how to manage the components in a Tuono codebase"
+/>
+
+# Components
+
+## Creating a standalone component
+
+Let’s start by creating a link component to display each Pokémon in the list.
+
+Create the `src/components/PokemonLink.tsx` file and paste the following content:
+
+```tsx
+// src/components/PokemonLink.tsx
+import type { JSX } from 'react'
+import { Link } from 'tuono'
+
+interface PokemonLinkProps {
+  id: number
+  name: string
+}
+
+export default function PokemonLink({
+  id,
+  name,
+}: PokemonLinkProps): JSX.Element {
+  return (
+    <Link href={`/pokemons/${name}`} id={id.toString()}>
+      {name}
+      <img
+        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+        alt=""
+      />
+    </Link>
+  )
+}
+```
+
+Now that the component is ready, import it and use it in the `index.tsx` file
+
+```diff
+// src/routes/index.tsx
+
+++  import PokemonLink from '../components/PokemonLink'
+
+// ...
+      <ul style={{ flexWrap: "wrap", display: "flex", gap: 10 }}>
+--      {pokemons.map((pokemon) => (
+--        <li key={pokemon.name}>{pokemon.name}</li>
+++      {pokemons.map((pokemon, i) => (
+++        <PokemonLink key={pokemon.name} id={i + 1} name={pokemon.name} />
+        })}
+      </ul>
+// ...
+```
+
+Now we have working links!
+However, clicking on them won't work yet because the `pokemons/[pokemon]` route hasn't been implemented.
+
+## Styling a component
+
+As already mentioned, CSS modules are supported out of the box, so let’s make the links more presentable.
+Create the `PokemonLink.module.css` stylesheet alongside `PokemonLink.tsx` and paste the following content:
+
+```css
+/* src/components/PokemonLink.module.css */
+
+.link {
+  width: 100%;
+  max-width: 216px;
+  position: relative;
+  background: white;
+  margin-bottom: 10px;
+  border: solid #f0f0f0 1px;
+  text-decoration: none;
+  color: black;
+  padding: 5px 5px 5px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.2s;
+  align-items: center;
+}
+
+.link:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.link img {
+  width: 70px;
+  background: white;
+  border-radius: 50%;
+}
+```
+
+> 💡 SASS is supported with no extra configuration. Just install the processor in the `devDependencies` with `npm i -D sass-embedded` and run `tuono dev` again
+
+Then import the styles in the `PokemonLink` component and provide them via the `className` prop to the `Link` component:
+
+```diff
+// src/components/PokemonLink.tsx
+import type { JSX } from 'react'
+import { Link } from 'tuono'
+
+++ import styles from './PokemonLink.module.css'
+
+interface PokemonLinkProps {
+  id: number
+  name: string
+}
+
+export default function PokemonLink({
+  id,
+  name,
+}: PokemonLinkProps): JSX.Element {
+  return (
+--  <Link href={`/pokemons/${name}`} id={id.toString()}>
+++  <Link href={`/pokemons/${name}`} className={styles.link} id={id.toString()}>
+      {name}
+      <img
+        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+        alt=""
+      />
+    </Link>
+  )
+}
+```
