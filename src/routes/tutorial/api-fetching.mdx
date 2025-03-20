@@ -1,0 +1,176 @@
+import MetaTags from '@/components/MetaTags'
+
+<MetaTags
+  title="Tuono - API fetching"
+  canonical="https://tuono.dev/documentation/tutorial/api-fetching"
+  description="Learn how to fetch remote APIs on the backend"
+/>
+
+# API fetching
+
+In this tutorial, we will fetch a list of all first generation Pokémon (the best ones, by the way) from the [PokeAPI](https://pokeapi.co/docs/v2) and create a dynamic page for each of them.
+
+## Fetch all the Pokémon
+
+Let's start by fetching the data on the root page.
+Since we want to render the Pokémon on the server, we need to implement the logic in the `index.rs` file.
+
+Clear the `index.rs` file and paste:
+
+```rs
+// src/routes/index.rs
+use serde::{Deserialize, Serialize};
+use reqwest::Client;
+use tuono_lib::{Props, Request, Response};
+
+const ALL_POKEMON: &str = "https://pokeapi.co/api/v2/pokemon?limit=151";
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Pokemons {
+    results: Vec<Pokemon>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Pokemon {
+    name: String,
+    url: String,
+}
+
+#[tuono_lib::handler]
+async fn get_all_pokemons(_req: Request, fetch: Client) -> Response {
+    return match fetch.get(ALL_POKEMON).send().await {
+        Ok(res) => {
+            let data = res.json::<Pokemons>().await.unwrap();
+            Response::Props(Props::new(data))
+        }
+        Err(_err) => Response::Props(Props::new("{}")),
+    };
+}
+```
+
+> The first argument is always `req: Request`, which contains all the request data, such as the query parameters and HTTP headers.
+> The other arguments represent the [ApplicationState](/documentation/application-state) and are optional.
+
+After doing this, the terminal will complain for two reasons:
+
+1. We haven't imported the `reqwest` crate
+2. The second argument `fetch: Client` hasn't been defined as global state yet.
+
+Let's fix these errors in the next section.
+
+## Application state
+
+Compared to JavaScript runtimes, Tuono is lightning fast because it only loads the features that you need for your project.
+
+You can load them in the `ApplicationState` inside the `./src/app.rs` file. This file is executed just once at the very beginning of your application.
+
+> For the tutorial we will use [Reqwest](https://docs.rs/reqwest/latest/reqwest/), which is one of the most popular HTTP libraries.
+
+To install it, run this command in your terminal:
+
+```sh
+cargo add reqwest
+```
+
+A new entry was added to your `Cargo.toml` file.
+
+```diff
+[package]
+name = "tuono"
+version = "0.0.1"
+edition = "2021"
+
+[[bin]]
+name = "tuono"
+path = ".tuono/main.rs"
+
+[dependencies]
+tuono_lib = "0.14.0" # the version might be different
+serde = { version = "1.0.202", features = ["derive"] }
+++ reqwest = "0.12.9" # the version might be different
+```
+
+> The `Cargo.toml` file is the manifest of your application and contains Rust's dependencies
+> (similar to the `package.json` file for JavaScript).
+
+Now let's define the `ApplicationState` in the `./src/app.rs` file.
+
+```rs
+// Import the reqwest library
+use reqwest::Client;
+
+#[derive(Clone)]
+// Extend this struct with the feature you will need for your application
+pub struct ApplicationState {
+    // This will be available to all your route handlers
+    pub fetch: Client,
+}
+
+pub fn main() -> ApplicationState {
+    let fetch = Client::new();
+    return ApplicationState { fetch };
+}
+```
+
+Now that the `fetch: Client` argument is available in the handler, the previously reported errors should be resolved.
+In the next section, we'll render the fetched data in the browser.
+
+## Handling the page UI
+
+With the Pokémon correctly fetched and hydrated on the client, we can finally render them.
+Replace the content of the `index.tsx` file with the following snippet:
+
+```tsx
+// src/routes/index.tsx
+import type { JSX } from 'react'
+import type { TuonoRouteProps } from 'tuono'
+
+interface IndexProps {
+  results: Array<{ name: string; url: string }>
+}
+
+export default function IndexPage({
+  data,
+}: TuonoRouteProps<IndexProps>): JSX.Element | null {
+  if (!data?.results) return null
+
+  return (
+    <>
+      <header className="header">
+        <a
+          href="https://crates.io/crates/tuono"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Crates
+        </a>
+        <a
+          href="https://www.npmjs.com/package/tuono"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Npm
+        </a>
+      </header>
+      <div className="title-wrap">
+        <h1 className="title">
+          TU<span>O</span>NO
+        </h1>
+        <div className="logo">
+          <img src="rust.svg" className="rust" />
+          <img src="react.svg" className="react" />
+        </div>
+      </div>
+      <ul style={{ flexWrap: 'wrap', display: 'flex', gap: 10 }}>
+        {data.results.map((pokemon) => (
+          <li key={pokemon.name} style={{ marginLeft: '16px' }}>
+            {pokemon.name}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+```
+
+Time to refresh the browser! It's still a bit ugly, but all the Pokémon are finally on the screen!
