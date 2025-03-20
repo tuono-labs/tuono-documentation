@@ -20,7 +20,7 @@ To do so `tuono` fully supports the [React19 components](https://react.dev/refer
 ```diff
 // src/routes/index.tsx
 import type { JSX } from 'react'
-import type { TuonoProps } from 'tuono'
+import type { TuonoRouteProps } from 'tuono'
 
 import PokemonLink from '../components/PokemonLink'
 
@@ -30,7 +30,7 @@ interface IndexProps {
 
 export default function IndexPage({
   data,
-}: TuonoProps<IndexProps>): JSX.Element | null {
+}: TuonoRouteProps<IndexProps>): JSX.Element | null {
   if (!data?.results) return null
 
   return (
@@ -79,7 +79,7 @@ export default function IndexPage({
 ```diff
 // src/routes/pokemons/[pokemon].tsx
 import type { JSX } from 'react'
-import type { TuonoProps } from 'tuono'
+import type { TuonoRouteProps } from 'tuono'
 import { Link } from 'tuono'
 
 import PokemonView from '../../components/PokemonView'
@@ -94,7 +94,7 @@ interface Pokemon {
 export default function PokemonPage({
   isLoading,
   data,
-}: TuonoProps<Pokemon>): JSX.Element {
+}: TuonoRouteProps<Pokemon>): JSX.Element {
   return (
     <div>
       <Link href="/">Back</Link>
