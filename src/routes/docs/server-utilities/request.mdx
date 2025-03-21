@@ -101,3 +101,47 @@ async fn my_post_request(req: Request) -> impl IntoResponse {
 ```
 
 > Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
+
+
+### `form_data`
+
+The `form_data` method allows you to parse form data from requests with the `application/x-www-form-urlencoded` content type.
+
+Here's an example of using the `form_data` method to handle data from a form submission:
+
+```rs
+#[derive(Deserialize)]
+struct ContactForm {
+   pub name: String,
+   pub email: String,
+   pub message: String
+}
+
+#[tuono_lib::api(POST)]
+async fn contact_handler(req: Request) -> impl IntoResponse {
+    match req.form_data::<ContactForm>() {
+        Ok(form) => {
+            // Process the contact form data
+            // Return a success response
+            StatusCode::OK.into_response()
+        },
+        Err(err) => {
+            // FormError implements IntoResponse and will automatically:
+            // - Return 415 UNSUPPORTED_MEDIA_TYPE for InvalidContentType
+            // - Return 400 BAD_REQUEST for ParseError
+            // - Return 500 INTERNAL_SERVER_ERROR for ServerError
+            // - Include a JSON error message in the response body
+            err.into_response()
+        }
+    }
+}
+```
+
+This method returns a `Result<T, FormError>` where:
+- `FormError::InvalidContentType` - Returned when the content-type is not `application/x-www-form-urlencoded`
+- `FormError::ParseError` - Returned when there's an error parsing the form data
+- `FormError::ServerError` - Returned when a server-side error occurs
+
+`FormError` implements `IntoResponse` for convenient error handling in API routes.
+
+> Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
