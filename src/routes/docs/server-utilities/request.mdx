@@ -102,7 +102,6 @@ async fn my_post_request(req: Request) -> impl IntoResponse {
 
 > Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
 
-
 ### `form_data`
 
 The `form_data` method allows you to parse form data from requests with the `application/x-www-form-urlencoded` content type.
@@ -138,6 +137,7 @@ async fn contact_handler(req: Request) -> impl IntoResponse {
 ```
 
 This method returns a `Result<T, FormError>` where:
+
 - `FormError::InvalidContentType` - Returned when the content-type is not `application/x-www-form-urlencoded`
 - `FormError::ParseError` - Returned when there's an error parsing the form data
 - `FormError::ServerError` - Returned when a server-side error occurs
