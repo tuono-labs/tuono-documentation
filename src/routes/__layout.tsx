@@ -1,11 +1,11 @@
 import type { ReactNode, JSX } from 'react'
 import { TuonoScripts } from 'tuono'
 
-import '@/styles/global.scss'
-
 import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
 import App from '@/components/App'
+
+import '@/styles/global.scss'
 
 interface RootRouteProps {
   children: ReactNode
