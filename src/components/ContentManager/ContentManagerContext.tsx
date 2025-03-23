@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode, JSX } from 'react'
 import { useRouter } from 'tuono'
 
 /**
- * Every page in the documentation/tutorial must be defined with this
- * interface.
+ * Every page in the documentation/tutorial must be
+ * structured according to this interface.
  */
 export interface Page {
   /**
@@ -41,31 +41,29 @@ export interface Page {
 
 type NavigationTree = Array<Page>
 
-interface ContentManagerResult extends PageLocation {
+interface ContentManagerContextValue extends PageLocation {
   navigationTree: NavigationTree
 }
 
 interface PageLocation {
-  currentPage?: Page
-  nextPage?: Page
-  previousPage?: Page
+  currentPage: Page | undefined
+  nextPage: Page | undefined
+  previousPage: Page | undefined
 }
 
-const ContentManagerContext = createContext<ContentManagerResult>({
+const ContentManagerContext = createContext<ContentManagerContextValue>({
   navigationTree: [],
+  currentPage: undefined,
+  nextPage: undefined,
+  previousPage: undefined,
 })
 
-interface ContentManagerProviderProps {
-  children: ReactNode
-  navigationTree: NavigationTree
-}
-
-const findPages = (
+const getPagesLocation = (
   navigationTree: NavigationTree,
   pathname: string,
 ): PageLocation => {
   const flattenTree = (tree: Array<Page>): Array<Page> => {
-    return tree.reduce((acc: Array<Page>, page) => {
+    return tree.reduce<Array<Page>>((acc, page) => {
       acc.push(page)
       if (page.pages) {
         acc.push(...flattenTree(page.pages))
@@ -85,23 +83,31 @@ const findPages = (
   }
 }
 
+interface ContentManagerProviderProps {
+  children: ReactNode
+  navigationTree: NavigationTree
+}
+
 export function ContentManagerProvider({
   children,
   navigationTree,
 }: ContentManagerProviderProps): JSX.Element {
   const { pathname } = useRouter()
   const [relativePages, setRelativePages] = useState<PageLocation>(
-    findPages(navigationTree, pathname),
+    getPagesLocation(navigationTree, pathname),
   )
 
   useEffect(() => {
-    setRelativePages(findPages(navigationTree, pathname))
-  }, [pathname, setRelativePages, navigationTree])
+    setRelativePages(getPagesLocation(navigationTree, pathname))
+  }, [pathname, navigationTree])
 
-  const context: ContentManagerResult = {
-    navigationTree,
-    ...relativePages,
-  }
+  const context: ContentManagerContextValue = useMemo(
+    () => ({
+      navigationTree,
+      ...relativePages,
+    }),
+    [navigationTree, relativePages],
+  )
 
   return (
     <ContentManagerContext.Provider value={context}>
@@ -110,6 +116,6 @@ export function ContentManagerProvider({
   )
 }
 
-export function useContentManager(): ContentManagerResult {
+export function useContentManager(): ContentManagerContextValue {
   return useContext(ContentManagerContext)
 }

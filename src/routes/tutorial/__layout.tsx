@@ -1,7 +1,7 @@
 import type { ReactNode, JSX } from 'react'
 
-import { ContentManagerProvider } from '@/components/ContentManager/Context'
-import type { Page } from '@/components/ContentManager/Context'
+import { ContentManagerProvider } from '@/components/ContentManager/ContentManagerContext'
+import type { Page } from '@/components/ContentManager/ContentManagerContext'
 
 // TODO: Add descriptions
 // TODO: Add seoTitles
