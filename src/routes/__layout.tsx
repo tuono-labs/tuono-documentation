@@ -5,6 +5,8 @@ import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
 import App from '@/components/App'
 
+import '@/styles/global.scss'
+
 interface RootRouteProps {
   children: ReactNode
 }
