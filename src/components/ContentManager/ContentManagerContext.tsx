@@ -58,7 +58,7 @@ const ContentManagerContext = createContext<ContentManagerContextValue>({
   previousPage: undefined,
 })
 
-const getPagesLocation = (
+const getPageLocation = (
   navigationTree: NavigationTree,
   pathname: string,
 ): PageLocation => {
@@ -94,11 +94,11 @@ export function ContentManagerProvider({
 }: ContentManagerProviderProps): JSX.Element {
   const { pathname } = useRouter()
   const [relativePages, setRelativePages] = useState<PageLocation>(
-    getPagesLocation(navigationTree, pathname),
+    getPageLocation(navigationTree, pathname),
   )
 
   useEffect(() => {
-    setRelativePages(getPagesLocation(navigationTree, pathname))
+    setRelativePages(getPageLocation(navigationTree, pathname))
   }, [pathname, navigationTree])
 
   const context: ContentManagerContextValue = useMemo(
