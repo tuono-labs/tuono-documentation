@@ -1,3 +1,4 @@
+@import 'node_modules/modern-normalize/modern-normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 @font-face {
@@ -12,4 +13,19 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family:
+    Menlo,
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    Liberation Mono,
+    Menlo,
+    monospace;
+  font-size: 1em;
 }
