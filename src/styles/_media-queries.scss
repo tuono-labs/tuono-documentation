@@ -1,17 +1,19 @@
-@mixin for-phone-only {
-  @media (max-width: 560px) {
+@import 'breakpoints';
+
+@mixin xs {
+  @media (max-width: #{$screen-sm-max}) {
     @content;
   }
 }
 
-@mixin for-tablet-portrait {
-  @media (min-width: 561px) and (max-width: 820px) {
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
     @content;
   }
 }
 
-@mixin for-tablet-landscape {
-  @media (min-width: 821px) and (max-width: 1150px) {
+@mixin xl {
+  @media (max-width: #{$screen-xl-max}) {
     @content;
   }
 }
