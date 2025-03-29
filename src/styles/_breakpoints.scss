@@ -1,0 +1,17 @@
+/**
+  * Breakpoints for responsive design.
+  *
+  * These breakpoints follow the desktop-first approach and 
+  * are based on the visual specifications.
+  *
+  * Space is reserved for future breakpoints (xs, lg, xxl).
+  */
+
+// Small devices (large phones portrait orientation)
+$breakpoint-screen-sm-max: 576px;
+
+// Medium devices (tablets portrait orientation)
+$breakpoint-screen-md-max: 820px;
+
+// Large devices (tablets landscape orientation)
+$breakpoint-screen-xl-max: 1150px;
