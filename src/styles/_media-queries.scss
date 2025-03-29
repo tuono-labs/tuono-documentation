@@ -1,19 +1,19 @@
-@import 'breakpoints';
+@use 'breakpoints';
 
 @mixin xs {
-  @media (max-width: #{$screen-sm-max}) {
+  @media (max-width: #{$breakpoint-screen-sm-max}) {
     @content;
   }
 }
 
 @mixin md {
-  @media (max-width: #{$screen-md-max}) {
+  @media (max-width: #{$breakpoint-screen-md-max}) {
     @content;
   }
 }
 
 @mixin xl {
-  @media (max-width: #{$screen-xl-max}) {
+  @media (max-width: #{$breakpoint-screen-xl-max}) {
     @content;
   }
 }
