@@ -29,3 +29,23 @@ pre {
     monospace;
   font-size: 1em;
 }
+
+:root {
+  [data-theme='dark'] {
+    --content-primary: $white;
+    --content-primary-opposite: $gray800;
+    --content-secondary: $gray500;
+    --content-tertiary: $gray400;
+    --content-accent: $purple300;
+    --border-primary: $gray100;
+  }
+
+  [data-theme='light'] {
+    --content-primary: $gray800;
+    --content-primary-opposite: $white;
+    --content-secondary: $gray500;
+    --content-tertiary: $gray400;
+    --content-accent: $purple300;
+    --border-primary: $gray100;
+  }
+}
