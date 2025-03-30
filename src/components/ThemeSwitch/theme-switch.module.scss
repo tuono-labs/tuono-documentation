@@ -1,0 +1,14 @@
+.theme-switch {
+  cursor: pointer;
+  color: var(--content-primary);
+  display: flex;
+  gap: 8px;
+
+  span {
+    width: 10px;
+    height: 10px;
+    background-color: var(--content-primary);
+    border-radius: 50%;
+    align-self: center;
+  }
+}
