@@ -1,6 +1,8 @@
 import type { ReactNode, JSX } from 'react'
 import { TuonoScripts } from 'tuono'
 
+import { ThemeProvider } from 'next-themes'
+
 import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
 import App from '@/components/App'
@@ -37,11 +39,13 @@ export default function RootRoute({ children }: RootRouteProps): JSX.Element {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
-        <PostHogProvider>
-          <PostHogPageView />
-          <App>{children}</App>
-        </PostHogProvider>
-        <TuonoScripts />
+        <ThemeProvider>
+          <PostHogProvider>
+            <PostHogPageView />
+            <App>{children}</App>
+          </PostHogProvider>
+          <TuonoScripts />
+        </ThemeProvider>
       </body>
     </html>
   )
