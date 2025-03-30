@@ -2,6 +2,8 @@ import type { JSX } from 'react'
 import { TuonoScripts } from 'tuono'
 import type { TuonoLayoutProps } from 'tuono'
 
+import { ThemeProvider } from 'next-themes'
+
 import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
 import App from '@/components/App'
@@ -34,11 +36,13 @@ export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
-        <PostHogProvider>
-          <PostHogPageView />
-          <App>{children}</App>
-        </PostHogProvider>
-        <TuonoScripts />
+        <ThemeProvider>
+          <PostHogProvider>
+            <PostHogPageView />
+            <App>{children}</App>
+          </PostHogProvider>
+          <TuonoScripts />
+        </ThemeProvider>
       </body>
     </html>
   )
