@@ -67,8 +67,9 @@ This file won't generate any route.
 ```tsx
 // src/routes/__layout.tsx
 import { TuonoScripts } from 'tuono'
+import type { TuonoLayoutProps } from 'tuono'
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: TuonoLayoutProps) {
   return (
     <html lang="en">
       <body>
@@ -91,7 +92,9 @@ A file created in this location will wrap only the routes defined within the `sr
 
 ```tsx
 // src/routes/posts/__layout.tsx
-export default function PostLayout({ children }) {
+import type { TuonoLayoutProps } from 'tuono'
+
+export default function PostLayout({ children }: TuonoLayoutProps) {
   return <article>{children}</article>
 }
 ```
