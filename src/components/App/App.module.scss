@@ -1,0 +1,9 @@
+@use '@/styles/media-queries' as *;
+
+.container {
+  padding-inline: 20px;
+
+  @include up-to-xs {
+    padding-inline: 8px;
+  }
+}
