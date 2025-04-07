@@ -27,7 +27,9 @@ export default function ThemeSwitch(): JSX.Element | null {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
       }}
     >
-      {resolvedTheme === 'dark' ? `Light` : `Dark`}
+      <span className="caption bold">
+        {resolvedTheme === 'dark' ? `Light` : `Dark`}
+      </span>
     </button>
   )
 }
