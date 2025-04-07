@@ -1,0 +1,112 @@
+@mixin defaultInter {
+  font-family: Inter, sans-serif;
+  letter-spacing: -4%;
+}
+
+@mixin defaultTitle {
+  @include defaultInter;
+  font-weight: bold;
+}
+
+@mixin defaultCode {
+  font-family:
+    Menlo,
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    Liberation Mono,
+    Menlo,
+    monospace;
+}
+
+.main-heading {
+  @include defaultTitle;
+
+  line-height: 72px;
+  font-size: 72px;
+}
+
+.title-1 {
+  @include defaultTitle;
+
+  line-height: 48px;
+  font-size: 58px;
+}
+
+.title-2 {
+  @include defaultTitle;
+
+  line-height: 26px;
+  font-size: 32px;
+}
+
+.title-3 {
+  @include defaultTitle;
+
+  line-height: 22px;
+  font-size: 26px;
+}
+
+.title-4 {
+  @include defaultTitle;
+
+  line-height: 18px;
+  font-size: 22px;
+}
+
+.main-body {
+  @include defaultInter;
+
+  font-weight: regular;
+  line-height: 20px;
+  font-size: 26px;
+}
+
+.body-1 {
+  @include defaultInter;
+
+  font-weight: regular;
+  line-height: 16px;
+  font-size: 24px;
+}
+
+.body-2 {
+  @include defaultInter;
+
+  font-weight: regular;
+  line-height: 14px;
+  font-size: 16px;
+}
+
+.code-1 {
+  @include defaultCode;
+
+  font-weight: regular;
+  line-height: 14px;
+  font-size: 22px;
+}
+
+.caption {
+  @include defaultInter;
+
+  font-weight: regular;
+  line-height: 12px;
+  font-size: 14px;
+}
+
+.caption-code {
+  @include defaultCode;
+
+  font-weight: regular;
+  line-height: 11px;
+  font-size: 18px;
+}
+
+/* Text Modifiers */
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
