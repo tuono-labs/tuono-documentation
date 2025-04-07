@@ -1,5 +1,6 @@
-import type { ReactNode, JSX } from 'react'
+import type { JSX } from 'react'
 import { TuonoScripts } from 'tuono'
+import type { TuonoLayoutProps } from 'tuono'
 
 import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
@@ -7,11 +8,7 @@ import App from '@/components/App'
 
 import '@/styles/global.scss'
 
-interface RootRouteProps {
-  children: ReactNode
-}
-
-export default function RootRoute({ children }: RootRouteProps): JSX.Element {
+export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
   return (
     <html lang="en">
       <head>

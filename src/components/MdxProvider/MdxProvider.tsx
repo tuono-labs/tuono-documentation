@@ -21,6 +21,8 @@ export default function MdxProvider({
         strong: (props) => <strong {...props} />,
         p: (props) => <p {...props} />,
         hr: () => <hr />,
+        pre: (props) => <pre {...props} style={{ width: '100px' }} />,
+        code: (props) => <pre {...props} />,
       }}
     >
       {children}
