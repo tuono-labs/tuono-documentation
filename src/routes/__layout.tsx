@@ -36,13 +36,13 @@ export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
-        <ThemeProvider>
-          <PostHogProvider>
+        <PostHogProvider>
+          <ThemeProvider>
             <PostHogPageView />
             <App>{children}</App>
-          </PostHogProvider>
-          <TuonoScripts />
-        </ThemeProvider>
+          </ThemeProvider>
+        </PostHogProvider>
+        <TuonoScripts />
       </body>
     </html>
   )

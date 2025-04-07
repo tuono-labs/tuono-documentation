@@ -12,19 +12,22 @@ export default function ThemeSwitch(): JSX.Element | null {
     setMounted(true)
   }, [])
 
+  // useTheme will be undefined until mounted on the client. This means if we
+  // try to render UI based on the current theme before mounting on the client,
+  // we will get a hydration mismatch error.
+  // docs: https://www.npmjs.com/package/next-themes
   if (!mounted) {
     return null
   }
 
   return (
-    <div
-      className={styles['theme-switch']}
+    <button
+      className={styles['theme-switch-button']}
       onClick={() => {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
       }}
     >
-      <span></span>
       {resolvedTheme === 'dark' ? `Light` : `Dark`}
-    </div>
+    </button>
   )
 }

@@ -1,14 +1,18 @@
-.theme-switch {
+.theme-switch-button {
+  all: unset;
   cursor: pointer;
   color: var(--content-primary);
   display: flex;
   gap: 8px;
+  width: 54px;
+  height: 16px;
 
-  span {
+  &::before {
     width: 10px;
     height: 10px;
-    background-color: var(--content-primary);
+    background-color: currentColor;
     border-radius: 50%;
     align-self: center;
+    content: '';
   }
 }
