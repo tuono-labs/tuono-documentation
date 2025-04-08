@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 
 import styles from './theme-switch.module.scss'
 
-export default function ThemeSwitch(): JSX.Element | null {
+export default function ThemeSwitch(): JSX.Element {
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
 
@@ -17,7 +17,7 @@ export default function ThemeSwitch(): JSX.Element | null {
   // we will get a hydration mismatch error.
   // docs: https://www.npmjs.com/package/next-themes
   if (!mounted) {
-    return null
+    return <div className="theme-switch-container" />
   }
 
   return (
