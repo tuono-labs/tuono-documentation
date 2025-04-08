@@ -1,4 +1,5 @@
 @use 'typography' as *;
+@use '@/styles/colors' as *;
 
 @import 'node_modules/modern-normalize/modern-normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
@@ -30,4 +31,22 @@ pre {
     Menlo,
     monospace;
   font-size: 1em;
+}
+
+:root[data-theme='dark'] {
+  --content-primary: #{$white};
+  --content-primary-opposite: #{$gray800};
+  --content-secondary: #{$gray500};
+  --content-tertiary: #{$gray400};
+  --content-accent: #{$purple300};
+  --border-primary: #{$gray100};
+}
+
+:root[data-theme='light'] {
+  --content-primary: #{$gray800};
+  --content-primary-opposite: #{$white};
+  --content-secondary: #{$gray500};
+  --content-tertiary: #{$gray400};
+  --content-accent: #{$purple300};
+  --border-primary: #{$gray100};
 }
