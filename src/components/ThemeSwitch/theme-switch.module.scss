@@ -1,0 +1,23 @@
+.theme-switch-button {
+  all: unset;
+  cursor: pointer;
+  color: var(--content-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 54px;
+  height: 16px;
+
+  &::before {
+    width: 10px;
+    height: 10px;
+    background-color: currentColor;
+    border-radius: 50%;
+    content: '';
+  }
+}
+
+.theme-switch-container {
+  width: 54px;
+  height: 16px;
+}
