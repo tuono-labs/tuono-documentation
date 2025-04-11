@@ -1,0 +1,99 @@
+import MetaTags from '@/components/MetaTags'
+
+<MetaTags
+  title="Tuono - Types generation"
+  canonical="https://tuono.dev/documentation/environment-variables"
+/>
+
+import Breadcrumbs from '@/components/Breadcrumbs'
+
+<Breadcrumbs breadcrumbs={[{ label: 'Types generation' }]} />
+
+# Typescript
+
+## Overview
+
+For tuono, Typescript is a first class citizen.
+
+The `tuono` package is entirely written in Typescript so that the developer
+can entirely rely on a strong type checking to ensure the program correctness.
+
+> Note: typescript is enabled by default but you can opt it out by just
+> changing your files' extensions into `.js || .jsx`
+
+## Automatic type generation
+
+Often types need to be written two times: first in the Rust handlers and then
+on the React components/routes to consume the backend payload.
+
+Writing multiple times the same interfaces is error prone and can lead to
+production bugs.
+
+In order to overcome this issue `tuono` allows automatic types generation for
+all the structs/enums defined inside any Rust file.
+
+### The `Type` trait
+
+Any struct or enum can be `derived` with the `Type` trait and the corresponding
+typescript interface will be automatically generated on the frontend.
+
+For example, the following struct declaration:
+
+```rs
+use tuono_lib::Type;
+
+#[derive(Type)]
+struct User {
+  id: String,
+  email: String,
+  age: u8,
+  cart: Vec<Item>,
+  saved: HashMap<String, Item>
+}
+```
+
+Will be available from any typescript file as:
+
+```ts
+import type { User } from 'tuono/types'
+```
+
+The generated type will be mapped as:
+
+```ts
+interface User {
+  id: string
+  email: string
+  age: number
+  cart: Item[]
+  saved: Record<string, Item>
+}
+```
+
+### Serde support
+
+In order to pass the payload to React the data has to be deserialized and [serde](https://serde.rs/)
+is the default serializer/deserializer crate `tuono` support.
+
+`tuono` supports all the serde's modifiers so that the generated typescript type
+can match the payload passed to the frontend.
+
+```rs
+use tuono_lib::Type;
+use serde::{Serialize, Deserialize}
+
+#[derive(Type, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct Cart {
+  id: String,
+  items: Vec<Item>,
+  saved_items: HashMap<String, Item>,
+  #[serde(rename(deserialize = "total_amount"))]
+  cart_total_amount: String,
+  #[serde(skip_serializing)]
+  secret_thing: String
+}
+
+```
+
+> Manually deserialized elements cannot be automatically generated

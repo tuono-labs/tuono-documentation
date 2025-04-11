@@ -7,6 +7,7 @@ import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
 import '@mantine/core/styles.css'
 import '@mantine/code-highlight/styles.css'
+import '@/styles/global.css'
 
 import App from '@/components/App'
 

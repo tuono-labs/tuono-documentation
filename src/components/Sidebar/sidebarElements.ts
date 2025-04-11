@@ -172,6 +172,11 @@ export const sidebarElements: Array<SidebarElement> = [
         label: 'MDX',
         href: '/documentation/integrations/mdx',
       },
+      {
+        type: 'element',
+        label: 'Typescript',
+        href: '/documentation/integrations/typescript',
+      },
     ],
   },
   { type: 'divider' },
