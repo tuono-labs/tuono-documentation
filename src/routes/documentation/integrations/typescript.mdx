@@ -88,12 +88,15 @@ struct Cart {
   id: String,
   items: Vec<Item>,
   saved_items: HashMap<String, Item>,
-  #[serde(rename(deserialize = "total_amount"))]
+  #[serde(rename = "total_amount")]
   cart_total_amount: String,
-  #[serde(skip_serializing)]
+  #[serde(skip)]
   secret_thing: String
 }
 
 ```
 
-> Manually deserialized elements cannot be automatically generated
+Manually serialized elements cannot be automatically generated
+
+> This feature is strongly inspired by the
+> [ts_rs](https://docs.rs/ts-rs/latest/ts_rs/) crate.
