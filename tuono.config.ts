@@ -3,9 +3,6 @@ import mdx from '@mdx-js/rollup'
 import remarkGfm from 'remark-gfm'
 
 const config: TuonoConfig = {
-  server: {
-    port: 8008,
-  },
   vite: {
     alias: {
       '@': 'src',
