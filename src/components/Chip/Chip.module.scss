@@ -1,8 +1,6 @@
-@use '@/styles/utils' as *;
 @use '@/styles/typography' as *;
 
 .chip {
-  //@include reset-button();
   @extend .caption;
   @extend .semi-bold;
 
