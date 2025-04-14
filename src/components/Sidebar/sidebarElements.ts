@@ -169,13 +169,13 @@ export const sidebarElements: Array<SidebarElement> = [
     children: [
       {
         type: 'element',
-        label: 'MDX',
-        href: '/documentation/integrations/mdx',
+        label: 'TypeScript',
+        href: '/documentation/integrations/typescript',
       },
       {
         type: 'element',
-        label: 'Typescript',
-        href: '/documentation/integrations/typescript',
+        label: 'MDX',
+        href: '/documentation/integrations/mdx',
       },
     ],
   },
