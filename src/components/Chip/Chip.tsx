@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
-import { Button, ButtonProps } from 'react-aria-components'
+import type { ButtonProps } from 'react-aria-components'
+import { Button } from 'react-aria-components'
 import cx from 'clsx'
+
 import styles from './Chip.module.scss'
 
 interface ChipProps extends ButtonProps {
