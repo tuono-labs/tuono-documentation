@@ -1,0 +1,17 @@
+@use '@/styles/utils' as *;
+@use '@/styles/typography' as *;
+
+.chip {
+  //@include reset-button();
+  @extend .caption;
+  @extend .semi-bold;
+
+  border-radius: 16px;
+  border: 1px solid var(--content-accent);
+  padding: 6px 12px;
+  background-color: var(--content-accent-low-contrast);
+}
+
+.pointerCursor {
+  cursor: pointer;
+}
