@@ -49,6 +49,37 @@ interface PageLocation {
   currentPage: Page | undefined
   nextPage: Page | undefined
   previousPage: Page | undefined
+  currentPageBreadcrumb: Array<Page>
+}
+
+/**
+ * This function returns an array containing all parent pages of the current page
+ * and the current page.
+ *
+ * This recursive function is implemented using the Depth-First Search (DFS)
+ * algorithm.
+ */
+const findPageAndParents = (
+  tree: NavigationTree,
+  targetPath: string,
+  currentPath: Page[] = [],
+): Page[] | null => {
+  for (const page of tree) {
+    const newPath = [...currentPath, page]
+
+    if (page.path === targetPath) {
+      return newPath
+    }
+
+    if (page.pages) {
+      const result = findPageAndParents(page.pages, targetPath, newPath)
+      if (result) {
+        return result
+      }
+    }
+  }
+
+  return null
 }
 
 const ContentManagerContext = createContext<ContentManagerContextValue>({
@@ -56,6 +87,7 @@ const ContentManagerContext = createContext<ContentManagerContextValue>({
   currentPage: undefined,
   nextPage: undefined,
   previousPage: undefined,
+  currentPageBreadcrumb: [],
 })
 
 const getPageLocation = (
@@ -75,11 +107,14 @@ const getPageLocation = (
   const pages = flattenTree(navigationTree)
 
   const currentPageIndex = pages.findIndex((page) => page.path === pathname)
+  const currentPageBreadcrumb =
+    findPageAndParents(navigationTree, pathname) || []
 
   return {
     currentPage: pages[currentPageIndex],
     nextPage: pages[currentPageIndex + 1],
     previousPage: pages[currentPageIndex - 1],
+    currentPageBreadcrumb,
   }
 }
 

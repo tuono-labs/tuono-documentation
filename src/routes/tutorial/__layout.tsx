@@ -3,6 +3,7 @@ import type { ReactNode, JSX } from 'react'
 import { ContentManagerProvider } from '@/components/ContentManager/ContentManagerContext'
 import type { Page } from '@/components/ContentManager/ContentManagerContext'
 import { ResponsiveLayout } from '@/components/ResponsiveLayout/ResponsiveLayout'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 // TODO: Add descriptions
 // TODO: Add seoTitles
@@ -80,7 +81,10 @@ export default function TutorialLayout({
 }: TutorialLayoutProps): JSX.Element {
   return (
     <ContentManagerProvider navigationTree={tutorialTree}>
-      <ResponsiveLayout>{children}</ResponsiveLayout>
+      <ResponsiveLayout>
+        <Breadcrumbs />
+        {children}
+      </ResponsiveLayout>
     </ContentManagerProvider>
   )
 }
