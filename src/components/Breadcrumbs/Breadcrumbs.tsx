@@ -1,9 +1,11 @@
 import type { JSX } from 'react'
-import { useContentManager } from '../ContentManager/ContentManagerContext'
-import type { Page } from '../ContentManager/ContentManagerContext'
+
 import cx from 'clsx'
-import { BreadcrumbsDivider } from '@/icons/BreadcrumbsDivider'
 import { Link } from 'tuono'
+
+import type { Page } from '@/components/ContentManager/ContentManagerContext'
+import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
+import { BreadcrumbsDivider } from '@/icons/BreadcrumbsDivider'
 
 import styles from './Breadcrumbs.module.scss'
 

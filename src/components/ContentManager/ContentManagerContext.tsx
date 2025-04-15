@@ -53,8 +53,8 @@ interface PageLocation {
 }
 
 /**
- * This function returns an array containing all parent pages of the current page
- * and the current page.
+ * This function returns an array containing all the parent pages of the target page
+ * and the target page as last element.
  *
  * This recursive function is implemented using the Depth-First Search (DFS)
  * algorithm.
@@ -62,8 +62,8 @@ interface PageLocation {
 const findPageAndParents = (
   tree: NavigationTree,
   targetPath: string,
-  currentPath: Page[] = [],
-): Page[] | null => {
+  currentPath: Array<Page> = [],
+): Array<Page> | null => {
   for (const page of tree) {
     const newPath = [...currentPath, page]
 
