@@ -1,6 +1,5 @@
 @mixin defaultInter {
   font-family: Inter, sans-serif;
-  letter-spacing: -4%;
 }
 
 @mixin defaultTitle {
@@ -24,6 +23,8 @@
 
   line-height: 72px;
   font-size: 72px;
+
+  letter-spacing: -0.2rem;
 }
 
 .title-1 {
@@ -76,6 +77,7 @@
   font-weight: regular;
   line-height: 14px;
   font-size: 16px;
+  letter-spacing: -0.1rem;
 }
 
 .code-1 {
@@ -92,6 +94,7 @@
   font-weight: regular;
   line-height: 12px;
   font-size: 14px;
+  letter-spacing: -0.02rem;
 }
 
 .caption-code {
