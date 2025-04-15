@@ -1,15 +1,12 @@
-import type { JSX, ReactNode } from 'react'
+import type { JSX } from 'react'
+import type { TuonoLayoutProps } from 'tuono'
 import { Divider } from '@mantine/core'
 
 import EditPage from '@/components/EditPage'
 
-interface DocumentationLayoutProps {
-  children: ReactNode
-}
-
 export default function DocumentationLayout({
   children,
-}: DocumentationLayoutProps): JSX.Element {
+}: TuonoLayoutProps): JSX.Element {
   return (
     <>
       {children}

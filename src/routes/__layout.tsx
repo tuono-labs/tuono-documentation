@@ -1,21 +1,17 @@
-import type { ReactNode, JSX } from 'react'
+import type { JSX } from 'react'
+import type { TuonoLayoutProps } from 'tuono'
 import { TuonoScripts } from 'tuono'
 
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core'
 
 import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
+import App from '@/components/App'
 
 import '@mantine/core/styles.css'
 import '@mantine/code-highlight/styles.css'
 import '@/styles/global.css'
 
-import App from '@/components/App'
-
-interface RootRouteProps {
-  children: ReactNode
-}
-
-export default function RootRoute({ children }: RootRouteProps): JSX.Element {
+export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>

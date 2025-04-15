@@ -15,23 +15,28 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 In Tuono, TypeScript is a first-class citizen.
 
-The `tuono` package is entirely written in TypeScript, allowing developers to leverage strong type checking to ensure program correctness when interacting with `tuono` functions and modules.
+`tuono` packages are written entirely in TypeScript, allowing developers
+to benefit from strong type checking that enhances code reliability and
+ensures correctness when using its functions and modules.
 
 ## Automatic Type Generation
 
-Typically, types need to be defined twice: first in the Rust handlers and then in the React components/routes to consume the backend payload.
+Typically, types need to be defined twice: first in the Rust handlers
+and then in the React components/routes to consume the backend payload.
 
 Duplicating the same interfaces is error-prone and can lead to production bugs.
 
-To simplify development, `tuono` enables automatic TypeScript type generation for all `structs` and `enums` defined in any Rust file.
+To simplify development, `tuono` enables automatic TypeScript type generation
+for all `structs` and `enums` defined in any Rust file.
 
 ### The `Type` Trait
 
-Any struct or enum can be `derived` with the `Type` trait, and the corresponding TypeScript interface will be automatically generated on the frontend.
+Any struct or enum can be `derived` with the `Type` trait, and the corresponding
+TypeScript interface will be automatically generated on the frontend.
 
-For example, the following struct declaration:
+For example, for the following struct declaration:
 
-```rust
+```rs
 use tuono_lib::Type;
 
 #[derive(Type)]
@@ -44,15 +49,9 @@ struct User {
 }
 ```
 
-Will be available in any TypeScript file as:
+The corresponding TypeScript type will be:
 
-```typescript
-import type { User } from 'tuono/types'
-```
-
-The generated type will be mapped as:
-
-```typescript
+```ts
 interface User {
   id: string
   email: string
@@ -62,13 +61,21 @@ interface User {
 }
 ```
 
+And it can be accessed via import from `tuono/types`:
+
+```ts
+import type { User } from 'tuono/types'
+```
+
 ### Serde Support
 
-To pass the payload to React, the data must be deserialized, and [serde](https://serde.rs/) is the default serializer/deserializer crate supported by `tuono`.
+To pass the payload to React, the data must be deserialized,
+and `tuono` uses [serde](https://serde.rs/) as the default serializer/deserializer.
 
-`tuono` supports all of serde's modifiers, ensuring that the generated TypeScript type matches the payload passed to the frontend.
+`tuono` supports all of serde's modifiers, ensuring that the generated TypeScript
+type matches the payload sent to the frontend.
 
-```rust
+```rs
 use tuono_lib::Type;
 use serde::{Serialize, Deserialize};
 
@@ -85,6 +92,8 @@ struct Cart {
 }
 ```
 
-Note: Manually serialized elements cannot be automatically generated.
+> ⚠️ Note: Manually serialized elements cannot be automatically generated.
 
-> This feature is strongly inspired by the [ts_rs](https://docs.rs/ts-rs/latest/ts-rs/) crate.
+### Credits
+
+This feature is strongly inspired by the [ts_rs](https://docs.rs/ts-rs/latest/ts-rs/) crate.
