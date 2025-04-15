@@ -13,6 +13,14 @@
   gap: 8px;
 }
 
-.clickable-breadcrumb {
+.clickable {
+  color: var(--content-secondary);
+
+  &:hover {
+    color: var(--content-accent);
+  }
+}
+
+.divider {
   color: var(--content-secondary);
 }

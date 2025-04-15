@@ -27,11 +27,11 @@ function BreadcrumbsItem({
     <>
       <Link
         href={page.path}
-        className={cx(styles.breadcrumb, styles['clickable-breadcrumb'])}
+        className={cx(styles.breadcrumb, styles.clickable)}
       >
         {page.title}
       </Link>
-      <BreadcrumbsDivider className={styles['clickable-breadcrumb']} />
+      <BreadcrumbsDivider className={styles.divider} />
     </>
   )
 }
