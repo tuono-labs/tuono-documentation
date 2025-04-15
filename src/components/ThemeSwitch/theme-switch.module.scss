@@ -1,7 +1,7 @@
 .theme-switch-button {
-  all: unset;
-  cursor: pointer;
   color: var(--content-primary);
+  border: none;
+  background-color: var(--background-primary);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -9,9 +9,9 @@
   height: 16px;
 
   &::before {
-    width: 10px;
+    min-width: 10px;
     height: 10px;
-    background-color: currentColor;
+    background-color: var(--content-primary);
     border-radius: 50%;
     content: '';
   }
