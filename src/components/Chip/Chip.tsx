@@ -13,7 +13,7 @@ export function Chip({ children, ...rest }: ChipProps): ReactNode {
   const hasOnPressHandler = typeof rest.onPress !== 'undefined'
   return (
     <Button
-      className={cx(styles.chip, hasOnPressHandler && styles.pointerCursor)}
+      className={cx(styles.chip, hasOnPressHandler && styles.clickable)}
       {...rest}
     >
       {children}
