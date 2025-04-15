@@ -1,6 +1,8 @@
-import { useState, useEffect, type JSX } from 'react'
+import { useState, useEffect } from 'react'
+import type { JSX } from 'react'
 
 import { useTheme } from 'next-themes'
+import { Button } from 'react-aria-components'
 
 import styles from './theme-switch.module.scss'
 
@@ -21,15 +23,15 @@ export default function ThemeSwitch(): JSX.Element {
   }
 
   return (
-    <button
-      className={styles['theme-switch-button']}
-      onClick={() => {
+    <Button
+      onPress={() => {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
       }}
+      className={styles['theme-switch-button']}
     >
       <span className="caption bold">
         {resolvedTheme === 'dark' ? `Light` : `Dark`}
       </span>
-    </button>
+    </Button>
   )
 }
