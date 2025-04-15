@@ -1,6 +1,6 @@
-import type { ReactElement, SVGProps } from 'react'
+import type { JSX, SVGProps } from 'react'
 
-export function IconX(props: SVGProps<SVGSVGElement>): ReactElement {
+export function IconX(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg
       width={20}
@@ -13,13 +13,13 @@ export function IconX(props: SVGProps<SVGSVGElement>): ReactElement {
       <g clipPath="url(#clip0_564_324)">
         <path
           d="M3.3335 3.83333L13.111 17.1667H16.6668L6.88933 3.83333H3.3335Z"
-          stroke="#131316"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M3.3335 17.1667L8.9735 11.5267M11.0235 9.47666L16.6668 3.83333"
-          stroke="#131316"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
         />

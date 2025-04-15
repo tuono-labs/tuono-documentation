@@ -1,0 +1,6 @@
+export * from './icon-arrow'
+export * from './icon-chip-arrow'
+export * from './icon-copy-paste'
+export * from './icon-discord'
+export * from './icon-github'
+export * from './icon-x'
