@@ -9,10 +9,11 @@ import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 import App from '@/components/App'
 
 import '@/styles/global.scss'
+import { I18nProvider } from 'react-aria-components'
 
 export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning lang="fr-FR" dir="ltr">
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,10 +38,12 @@ export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
       </head>
       <body>
         <PostHogProvider>
-          <ThemeProvider>
-            <PostHogPageView />
-            <App>{children}</App>
-          </ThemeProvider>
+          <I18nProvider locale="fr-FR">
+            <ThemeProvider>
+              <PostHogPageView />
+              <App>{children}</App>
+            </ThemeProvider>
+          </I18nProvider>
         </PostHogProvider>
         <TuonoScripts />
       </body>

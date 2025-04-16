@@ -20,7 +20,13 @@
 
 .sub-page {
   @extend .body-2;
-  margin-bottom: 14px;
+
+  margin-bottom: 12px;
+  padding-inline: max(calc((var(--tree-item-level) - 1) * 12px), 4px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 16px;
 
   & a {
     text-decoration: none;
@@ -31,4 +37,28 @@
     @extend .semi-bold;
     color: var(--content-accent);
   }
+
+  &[data-expanded] {
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  .arrow {
+    color: var(--content-secondary);
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    .icon {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.spacing {
+  height: 16px;
 }
