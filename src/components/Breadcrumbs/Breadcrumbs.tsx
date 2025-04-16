@@ -5,7 +5,7 @@ import { Link } from 'tuono'
 
 import type { Page } from '@/components/ContentManager/ContentManagerContext'
 import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
-import { BreadcrumbsDivider } from '@/icons/BreadcrumbsDivider'
+import { BreadcrumbsDivider } from '@/icons/breadcrumbs-divider'
 
 import styles from './Breadcrumbs.module.scss'
 
