@@ -2,16 +2,16 @@ import type { JSX } from 'react'
 
 import cx from 'clsx'
 import { Link } from 'tuono'
+import {
+  Breadcrumb,
+  Breadcrumbs as AriaBreadcrumbs,
+} from 'react-aria-components'
 
 import type { Page } from '@/components/ContentManager/ContentManagerContext'
 import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
 import { BreadcrumbsDivider } from '@/icons/breadcrumbs-divider'
 
 import styles from './Breadcrumbs.module.scss'
-import {
-  Breadcrumb,
-  Breadcrumbs as AriaBreadcrumbs,
-} from 'react-aria-components'
 
 interface BreadcrumbsItemProps {
   page: Page
