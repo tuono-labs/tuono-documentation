@@ -1,0 +1,26 @@
+@use '@/styles/typography' as *;
+
+.breadcrumb {
+  @extend .body-2;
+
+  text-decoration: none;
+  color: var(--content-primary);
+}
+
+.breadcrumbs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clickable {
+  color: var(--content-secondary);
+
+  &:hover {
+    color: var(--content-accent);
+  }
+}
+
+.divider {
+  color: var(--content-secondary);
+}
