@@ -14,7 +14,7 @@
 :root[data-theme='dark'] {
   --content-primary: #{$white};
   --content-primary-opposite: #{$gray800};
-  --content-secondary: #{$gray500};
+  --content-secondary: #{$gray300};
   --content-tertiary: #{$gray400};
   --content-accent: #{$purple300};
 
@@ -28,7 +28,7 @@
 :root[data-theme='light'] {
   --content-primary: #{$gray800};
   --content-primary-opposite: #{$white};
-  --content-secondary: #{$gray500};
+  --content-secondary: #{$gray600};
   --content-tertiary: #{$gray400};
   --content-accent: #{$purple300};
 
