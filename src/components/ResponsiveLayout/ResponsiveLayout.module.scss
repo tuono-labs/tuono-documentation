@@ -14,9 +14,8 @@
   }
 }
 
-@mixin sidecontent {
+.sidecontent {
   min-width: 220px;
-  background-color: lightgray;
   height: 100%;
 
   @include up-to-xs {
@@ -25,11 +24,12 @@
 }
 
 .sidebar {
-  @include sidecontent;
+  @extend .sidecontent;
 }
 
 .tableOfContents {
-  @include sidecontent;
+  @extend .sidecontent;
+  background-color: lightgray;
 
   @include up-to-xl {
     display: none;

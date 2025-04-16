@@ -14,9 +14,9 @@
 :root[data-theme='dark'] {
   --content-primary: #{$white};
   --content-primary-opposite: #{$gray800};
-  --content-secondary: #{$gray500};
+  --content-secondary: #{$gray200};
   --content-tertiary: #{$gray400};
-  --content-accent: #{$purple300};
+  --content-accent: #{$purple200};
 
   --content-accent-low-contrast: #9747ff33; // #{$purple200} with 20% opacity;
 
@@ -28,7 +28,7 @@
 :root[data-theme='light'] {
   --content-primary: #{$gray800};
   --content-primary-opposite: #{$white};
-  --content-secondary: #{$gray500};
+  --content-secondary: #{$gray600};
   --content-tertiary: #{$gray400};
   --content-accent: #{$purple300};
 

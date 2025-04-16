@@ -1,0 +1,34 @@
+@use '@/styles/typography' as *;
+
+.block {
+  margin: 0 0 24px 0;
+}
+
+.block-title {
+  @extend .caption;
+  @extend .semi-bold;
+
+  color: var(--content-primary);
+  margin: 0 0 16px 0;
+}
+
+.list {
+  list-style-type: none;
+  padding-inline: 8px;
+  margin: 0;
+}
+
+.sub-page {
+  @extend .body-2;
+  margin-bottom: 14px;
+
+  & a {
+    text-decoration: none;
+    color: var(--content-secondary);
+  }
+
+  .active {
+    @extend .semi-bold;
+    color: var(--content-accent);
+  }
+}
