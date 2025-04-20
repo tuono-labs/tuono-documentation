@@ -1,0 +1,99 @@
+import MetaTags from '@/components/MetaTags'
+
+<MetaTags
+  title="Tuono - TypeScript"
+  canonical="https://tuono.dev/documentation/environment-variables"
+/>
+
+import Breadcrumbs from '@/components/Breadcrumbs'
+
+<Breadcrumbs breadcrumbs={[{ label: 'TypeScript' }]} />
+
+# TypeScript
+
+## Overview
+
+In Tuono, TypeScript is a first-class citizen.
+
+`tuono` packages are written entirely in TypeScript, allowing developers
+to benefit from strong type checking that enhances code reliability and
+ensures correctness when using its functions and modules.
+
+## Automatic Type Generation
+
+Typically, types need to be defined twice: first in the Rust handlers
+and then in the React components/routes to consume the backend payload.
+
+Duplicating the same interfaces is error-prone and can lead to production bugs.
+
+To simplify development, `tuono` enables automatic TypeScript type generation
+for all `structs` and `enums` defined in any Rust file.
+
+### The `Type` Trait
+
+Any struct or enum can be `derived` with the `Type` trait, and the corresponding
+TypeScript interface will be automatically generated on the frontend.
+
+For example, for the following struct declaration:
+
+```rs
+use tuono_lib::Type;
+
+#[derive(Type)]
+struct User {
+  id: String,
+  email: String,
+  age: u8,
+  cart: Vec<Item>,
+  saved: HashMap<String, Item>
+}
+```
+
+The corresponding TypeScript type will be:
+
+```ts
+interface User {
+  id: string
+  email: string
+  age: number
+  cart: Item[]
+  saved: Record<string, Item>
+}
+```
+
+And it can be accessed via import from `tuono/types`:
+
+```ts
+import type { User } from 'tuono/types'
+```
+
+### Serde Support
+
+To pass the payload to React, the data must be deserialized,
+and `tuono` uses [serde](https://serde.rs/) as the default serializer/deserializer.
+
+`tuono` supports all of serde's modifiers, ensuring that the generated TypeScript
+type matches the payload sent to the frontend.
+
+```rs
+use tuono_lib::Type;
+use serde::{Serialize, Deserialize};
+
+#[derive(Type, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct Cart {
+  id: String,
+  items: Vec<Item>,
+  saved_items: HashMap<String, Item>,
+  #[serde(rename = "total_amount")]
+  cart_total_amount: String,
+  #[serde(skip)]
+  secret_thing: String
+}
+```
+
+> ⚠️ Note: Manually serialized elements cannot be automatically generated.
+
+### Inspiration
+
+This feature is strongly inspired by the [ts_rs](https://docs.rs/ts-rs/latest) crate.

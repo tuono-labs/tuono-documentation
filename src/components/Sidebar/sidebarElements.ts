@@ -169,6 +169,11 @@ export const sidebarElements: Array<SidebarElement> = [
     children: [
       {
         type: 'element',
+        label: 'TypeScript',
+        href: '/documentation/integrations/typescript',
+      },
+      {
+        type: 'element',
         label: 'MDX',
         href: '/documentation/integrations/mdx',
       },
