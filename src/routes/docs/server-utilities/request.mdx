@@ -117,15 +117,12 @@ struct ContactForm {
 }
 
 #[tuono_lib::api(POST)]
-async fn contact_handler(req: Request) -> impl IntoResponse {
-    match req.form_data::<ContactForm>() {
-        Ok(form) => {
-            StatusCode::OK.into_response()
-        },
-        Err(err) => {
-            StatusCode::BAD_REQUEST.into_response()
-        }
+async fn contact_handler(req: Request) -> StatusCode {
+    if let Ok(form_data) = req.form_data::<ContactForm>() {
+            return StatusCode::OK
     }
+    
+    StatusCode::BAD_REQUEST
 }
 ```
 
