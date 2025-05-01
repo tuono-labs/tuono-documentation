@@ -121,10 +121,9 @@ async fn contact_handler(req: Request) -> StatusCode {
     if let Ok(form_data) = req.form_data::<ContactForm>() {
             return StatusCode::OK
     }
-    
+
     StatusCode::BAD_REQUEST
 }
 ```
-
 
 > Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
