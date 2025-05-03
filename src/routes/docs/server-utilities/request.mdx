@@ -101,3 +101,29 @@ async fn my_post_request(req: Request) -> impl IntoResponse {
 ```
 
 > Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
+
+### `form_data`
+
+The `form_data` method allows you to parse form data from requests with the `application/x-www-form-urlencoded` content type.
+
+Here's an example of using the `form_data` method to handle data from a form submission:
+
+```rs
+#[derive(Deserialize)]
+struct ContactForm {
+   pub name: String,
+   pub email: String,
+   pub message: String
+}
+
+#[tuono_lib::api(POST)]
+async fn contact_handler(req: Request) -> StatusCode {
+    if let Ok(form_data) = req.form_data::<ContactForm>() {
+            return StatusCode::OK
+    }
+
+    StatusCode::BAD_REQUEST
+}
+```
+
+> Keep in mind that specifying the type is essential, as the method relies on it to determine the appropriate body serialization.
