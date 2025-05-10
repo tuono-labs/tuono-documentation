@@ -2,6 +2,10 @@ import type { JSX } from 'react'
 
 import cx from 'clsx'
 import { Link } from 'tuono'
+import {
+  Breadcrumb,
+  Breadcrumbs as AriaBreadcrumbs,
+} from 'react-aria-components'
 
 import type { Page } from '@/components/ContentManager/ContentManagerContext'
 import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
@@ -18,28 +22,20 @@ function BreadcrumbsItem({
   page,
   isLastPage,
 }: BreadcrumbsItemProps): JSX.Element {
-  if (isLastPage) {
-    return (
-      <span className={cx(styles.breadcrumb, 'semi-bold')}>{page.title}</span>
-    )
-  }
   return (
-    <>
-      <Link
-        href={page.path}
-        className={cx(styles.breadcrumb, styles.clickable)}
-      >
+    <Breadcrumb className={cx(styles.breadcrumb)}>
+      <Link href={!isLastPage ? page.path : ''} className={styles.clickable}>
         {page.title}
       </Link>
-      <BreadcrumbsDivider className={styles.divider} />
-    </>
+      {!isLastPage && <BreadcrumbsDivider className={styles.divider} />}
+    </Breadcrumb>
   )
 }
 
 export function Breadcrumbs(): JSX.Element {
   const { currentPageBreadcrumb } = useContentManager()
   return (
-    <div className={styles['breadcrumbs-wrapper']}>
+    <AriaBreadcrumbs className={styles['breadcrumbs-wrapper']}>
       {currentPageBreadcrumb.map((page: Page, i: number) => (
         <BreadcrumbsItem
           key={page.path}
@@ -47,6 +43,6 @@ export function Breadcrumbs(): JSX.Element {
           isLastPage={i === currentPageBreadcrumb.length - 1}
         />
       ))}
-    </div>
+    </AriaBreadcrumbs>
   )
 }
