@@ -37,7 +37,7 @@ importers:
         version: 4.0.0
       tuono:
         specifier: 0.19.6
-        version: 0.19.6(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+        version: 0.19.6(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3))
     devDependencies:
       '@eslint/js':
         specifier: 9.21.0
@@ -70,14 +70,14 @@ importers:
         specifier: 5.2.0
         version: 5.2.0(eslint@9.21.0)
       postcss:
-        specifier: 8.5.2
-        version: 8.5.2
+        specifier: 8.5.3
+        version: 8.5.3
       postcss-preset-mantine:
         specifier: 1.17.0
-        version: 1.17.0(postcss@8.5.2)
+        version: 1.17.0(postcss@8.5.3)
       postcss-simple-vars:
         specifier: 7.0.1
-        version: 7.0.1(postcss@8.5.2)
+        version: 7.0.1(postcss@8.5.3)
       prettier:
         specifier: 3.5.2
         version: 3.5.2
@@ -2437,10 +2437,6 @@ packages:
     peerDependencies:
       postcss: ^8.2.1
 
-  postcss@8.5.2:
-    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4754,10 +4750,10 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-react-swc@3.8.0(@swc/helpers@0.5.17)(vite@6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)))':
+  '@vitejs/plugin-react-swc@3.8.0(@swc/helpers@0.5.17)(vite@6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3)))':
     dependencies:
       '@swc/core': 1.10.15(@swc/helpers@0.5.17)
-      vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+      vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3))
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -6280,44 +6276,38 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-js@4.0.1(postcss@8.5.2):
+  postcss-js@4.0.1(postcss@8.5.3):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-mixins@9.0.4(postcss@8.5.2):
+  postcss-mixins@9.0.4(postcss@8.5.3):
     dependencies:
       fast-glob: 3.3.3
-      postcss: 8.5.2
-      postcss-js: 4.0.1(postcss@8.5.2)
-      postcss-simple-vars: 7.0.1(postcss@8.5.2)
-      sugarss: 4.0.1(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-js: 4.0.1(postcss@8.5.3)
+      postcss-simple-vars: 7.0.1(postcss@8.5.3)
+      sugarss: 4.0.1(postcss@8.5.3)
 
-  postcss-nested@6.2.0(postcss@8.5.2):
+  postcss-nested@6.2.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
-  postcss-preset-mantine@1.17.0(postcss@8.5.2):
+  postcss-preset-mantine@1.17.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
-      postcss-mixins: 9.0.4(postcss@8.5.2)
-      postcss-nested: 6.2.0(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-mixins: 9.0.4(postcss@8.5.3)
+      postcss-nested: 6.2.0(postcss@8.5.3)
 
   postcss-selector-parser@6.1.2:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-simple-vars@7.0.1(postcss@8.5.2):
+  postcss-simple-vars@7.0.1(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
-
-  postcss@8.5.2:
-    dependencies:
-      nanoid: 3.3.8
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
+      postcss: 8.5.3
 
   postcss@8.5.3:
     dependencies:
@@ -6861,9 +6851,9 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.4
 
-  sugarss@4.0.1(postcss@8.5.2):
+  sugarss@4.0.1(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
 
   supports-color@7.2.0:
     dependencies:
@@ -6902,12 +6892,12 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tuono-react-vite-plugin@0.19.6(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
+  tuono-react-vite-plugin@0.19.6(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3)):
     dependencies:
       '@babel/core': 7.26.8
       '@babel/types': 7.26.8
       prettier: 3.5.2
-      vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+      vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3))
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -6929,20 +6919,20 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  tuono@0.19.6(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
+  tuono@0.19.6(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3)):
     dependencies:
       '@babel/core': 7.26.8
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
       '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
       '@rollup/plugin-inject': 5.0.5(rollup@4.34.6)
-      '@vitejs/plugin-react-swc': 3.8.0(@swc/helpers@0.5.17)(vite@6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)))
+      '@vitejs/plugin-react-swc': 3.8.0(@swc/helpers@0.5.17)(vite@6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3)))
       fast-text-encoding: 1.0.6
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      tuono-react-vite-plugin: 0.19.6(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+      tuono-react-vite-plugin: 0.19.6(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3))
       tuono-router: 0.19.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       url-search-params-polyfill: 8.2.5
-      vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+      vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3))
       web-streams-polyfill: 4.1.0
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -7085,7 +7075,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
+  vite@6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.3)):
     dependencies:
       esbuild: 0.25.0
       postcss: 8.5.3
@@ -7094,7 +7084,7 @@ snapshots:
       '@types/node': 22.13.10
       fsevents: 2.3.3
       sass-embedded: 1.86.0
-      sugarss: 4.0.1(postcss@8.5.2)
+      sugarss: 4.0.1(postcss@8.5.3)
 
   web-streams-polyfill@4.1.0: {}
 
