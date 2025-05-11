@@ -19,7 +19,7 @@ export default function ThemeSwitch(): JSX.Element {
   // we will get a hydration mismatch error.
   // docs: https://www.npmjs.com/package/next-themes
   if (!mounted) {
-    return <div className="theme-switch-container" />
+    return <div className={styles['theme-switcher-container']} />
   }
 
   return (
