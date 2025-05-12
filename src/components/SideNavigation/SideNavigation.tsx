@@ -1,8 +1,6 @@
 import type { JSX } from 'react'
-import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
-import type { Page } from '@/components/ContentManager/ContentManagerContext'
-import { useRouter } from 'tuono'
-import { Link } from 'tuono'
+import cx from 'clsx'
+import { Link, useRouter } from 'tuono'
 import {
   Tree,
   TreeItem,
@@ -10,10 +8,12 @@ import {
   Collection,
   Button,
 } from 'react-aria-components'
-import cx from 'clsx'
+
+import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
+import { IconArrow } from '@/icons'
+import type { Page } from '@/components/ContentManager/ContentManagerContext'
 
 import styles from './SideNavigation.module.scss'
-import { IconArrow } from '@/icons'
 
 interface TreeItemContentProps {
   hasChildItems: boolean
@@ -57,7 +57,9 @@ function TreeBlock({ page }: { page: Page }): JSX.Element {
               id={subPage.path}
               key={subPage.path}
               className={styles['sub-page']}
-              onAction={() => router.push(subPage.path)}
+              onAction={(): void => {
+                router.push(subPage.path)
+              }}
             >
               <AriaTreeItemContent>
                 {({ hasChildItems }) => (

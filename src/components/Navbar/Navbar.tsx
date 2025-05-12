@@ -1,6 +1,7 @@
-import { JSX } from 'react'
+import type { JSX } from 'react'
 
 import { ThemeSwitch } from '@/components/ThemeSwitch'
+
 import styles from './Navbar.module.scss'
 
 export function Navbar(): JSX.Element {

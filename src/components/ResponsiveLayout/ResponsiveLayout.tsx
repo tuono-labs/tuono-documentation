@@ -1,6 +1,7 @@
 import type { ReactNode, JSX } from 'react'
 
 import { SideNavigation } from '@/components/SideNavigation'
+
 import styles from './ResponsiveLayout.module.scss'
 
 interface ResponsiveLayoutProps {
