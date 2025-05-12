@@ -14,9 +14,9 @@
 :root[data-theme='dark'] {
   --content-primary: #{$white};
   --content-primary-opposite: #{$gray800};
-  --content-secondary: #{$gray300};
+  --content-secondary: #{$gray200};
   --content-tertiary: #{$gray400};
-  --content-accent: #{$purple300};
+  --content-accent: #{$purple200};
 
   --content-accent-low-contrast: #9747ff33; // #{$purple200} with 20% opacity;
 
@@ -45,6 +45,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--background-primary);
+  height: 100vh;
 }
 
 code,

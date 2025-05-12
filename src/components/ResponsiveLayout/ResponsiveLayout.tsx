@@ -1,9 +1,11 @@
 import type { ReactNode, JSX } from 'react'
 
+import { SideNavigation } from '@/components/SideNavigation'
 import styles from './ResponsiveLayout.module.scss'
 
 interface ResponsiveLayoutProps {
   children: ReactNode
+  withSideNavigation?: boolean
 }
 
 /**
@@ -12,11 +14,16 @@ interface ResponsiveLayoutProps {
  */
 export function ResponsiveLayout({
   children,
+  withSideNavigation = true,
 }: ResponsiveLayoutProps): JSX.Element {
   return (
     <div className={styles.layout}>
-      <aside className={styles.sidebar} />
-      <article>{children}</article>
+      {withSideNavigation && (
+        <aside className={styles.sidebar}>
+          <SideNavigation />
+        </aside>
+      )}
+      <article className={styles.body}>{children}</article>
       <div className={styles.tableOfContents} />
     </div>
   )

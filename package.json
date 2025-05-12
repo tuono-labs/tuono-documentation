@@ -21,7 +21,7 @@
     "react": "19.0.0",
     "react-aria-components": "1.8.0",
     "react-dom": "19.0.0",
-    "remark-gfm": "4.0.0",
+    "remark-gfm": "4.0.1",
     "tuono": "0.19.6"
   },
   "devDependencies": {
