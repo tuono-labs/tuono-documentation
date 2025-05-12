@@ -1,0 +1,34 @@
+@use '@/styles/variables' as *;
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  height: $navbar-height;
+  backdrop-filter: blur(15px);
+  left: 0;
+  top: 0;
+  z-index: 10;
+
+  .background {
+    background-color: var(--background-primary);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    z-index: 2;
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    margin-top: -$navbar-height;
+  }
+}
+
+.navbar-spacing {
+  position: relative;
+  width: 100%;
+  height: $navbar-height;
+}

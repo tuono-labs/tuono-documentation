@@ -2,6 +2,7 @@
 
 .container {
   padding-inline: 20px;
+  height: fit-content;
 
   @include up-to-xs {
     padding-inline: 8px;

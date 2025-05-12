@@ -1,0 +1,64 @@
+@use '@/styles/typography' as *;
+
+.block {
+  margin: 0 0 24px 0;
+}
+
+.block-title {
+  @extend .caption;
+  @extend .semi-bold;
+
+  color: var(--content-primary);
+  margin: 0 0 16px 0;
+}
+
+.list {
+  list-style-type: none;
+  padding-inline: 8px;
+  margin: 0;
+}
+
+.sub-page {
+  @extend .body-2;
+
+  margin-bottom: 12px;
+  padding-inline: max(calc((var(--tree-item-level) - 1) * 12px), 4px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 16px;
+
+  & a {
+    text-decoration: none;
+    color: var(--content-secondary);
+  }
+
+  .active {
+    @extend .semi-bold;
+    color: var(--content-accent);
+  }
+
+  &[data-expanded] {
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  .arrow {
+    color: var(--content-secondary);
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    .icon {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.spacing {
+  height: 16px;
+}

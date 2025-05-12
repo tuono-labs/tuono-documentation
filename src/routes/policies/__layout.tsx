@@ -6,5 +6,7 @@ import { ResponsiveLayout } from '@/components/ResponsiveLayout/ResponsiveLayout
 export default function PoliciesLayout({
   children,
 }: TuonoLayoutProps): JSX.Element {
-  return <ResponsiveLayout>{children}</ResponsiveLayout>
+  return (
+    <ResponsiveLayout withSideNavigation={false}>{children}</ResponsiveLayout>
+  )
 }

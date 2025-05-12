@@ -5,9 +5,7 @@ interface MdxProviderProps {
   children: ReactNode
 }
 
-export default function MdxProvider({
-  children,
-}: MdxProviderProps): JSX.Element {
+export function MdxProvider({ children }: MdxProviderProps): JSX.Element {
   return (
     <MDXProvider
       components={{

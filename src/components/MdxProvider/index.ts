@@ -1,3 +1,3 @@
-import MdxProvider from './MdxProvider'
+import { MdxProvider } from './MdxProvider'
 
 export default MdxProvider
