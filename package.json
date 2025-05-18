@@ -25,15 +25,15 @@
     "tuono": "0.19.6"
   },
   "devDependencies": {
-    "@eslint/js": "9.21.0",
+    "@eslint/js": "9.27.0",
     "@mdx-js/rollup": "3.1.0",
     "@types/node": "22.13.10",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
-    "eslint": "9.21.0",
-    "eslint-import-resolver-typescript": "3.8.3",
-    "eslint-plugin-import-x": "4.6.1",
-    "eslint-plugin-react": "7.37.4",
+    "eslint": "9.27.0",
+    "eslint-import-resolver-typescript": "3.10.1",
+    "eslint-plugin-import-x": "4.12.2",
+    "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "postcss": "8.5.2",
     "postcss-preset-mantine": "1.17.0",
@@ -41,7 +41,7 @@
     "prettier": "3.5.2",
     "sass-embedded": "1.86.0",
     "typescript": "5.7.3",
-    "typescript-eslint": "8.25.0"
+    "typescript-eslint": "8.32.1"
   },
   "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
 }
