@@ -3,7 +3,7 @@ import type { TuonoLayoutProps } from 'tuono'
 
 import { Navbar } from '@/components/Navbar'
 
-import MdxProvider from '@/components/MdxProvider'
+import { MdxProvider } from '@/contexts/MdxProvider'
 
 import styles from './App.module.scss'
 

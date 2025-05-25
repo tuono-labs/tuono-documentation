@@ -1,4 +1,4 @@
-import { useDarkMode } from 'usehooks-ts'
+import { useDarkMode } from '@/patches/useDarkMode'
 
 type Theme = 'light' | 'dark'
 
@@ -7,7 +7,8 @@ interface UseThemeResults {
   theme: Theme
 }
 
-const isServer = typeof window === 'undefined'
+export const TUONO_THEME_LOCAL_STORAGE_KEY = 'tuono-docs-dark-mode'
+export const DEFAULT_THEME: Theme = 'dark'
 
 /**
  * Custom hook to manage theme (light/dark mode).
@@ -16,7 +17,7 @@ const isServer = typeof window === 'undefined'
  */
 export function useTheme(): UseThemeResults {
   const { isDarkMode, toggle } = useDarkMode({
-    initializeWithValue: isServer ? false : undefined,
+    localStorageKey: TUONO_THEME_LOCAL_STORAGE_KEY,
   })
 
   return {

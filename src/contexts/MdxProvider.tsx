@@ -27,7 +27,7 @@ export function MdxProvider({ children }: MdxProviderProps): JSX.Element {
         {children}
       </MDXProvider>
     ),
-    [],
+    [children],
   )
 
   return Provider
