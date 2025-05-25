@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import type { JSX } from 'react'
 
-import { useTheme } from 'next-themes'
 import { Button } from 'react-aria-components'
 
 import styles from './theme-switch.module.scss'
+import { useTheme } from '@/hooks/useTheme'
 
 export default function ThemeSwitch(): JSX.Element {
   const [mounted, setMounted] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
+  const { theme, toggle } = useTheme()
 
   useEffect(() => {
     setMounted(true)
@@ -23,14 +23,9 @@ export default function ThemeSwitch(): JSX.Element {
   }
 
   return (
-    <Button
-      onPress={() => {
-        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-      }}
-      className={styles['theme-switch-button']}
-    >
+    <Button onPress={() => toggle()} className={styles['theme-switch-button']}>
       <span className="caption bold">
-        {resolvedTheme === 'dark' ? `Light` : `Dark`}
+        {theme === 'dark' ? `Light` : `Dark`}
       </span>
     </Button>
   )

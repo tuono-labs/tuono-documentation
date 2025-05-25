@@ -2,17 +2,18 @@ import type { JSX } from 'react'
 import { TuonoScripts } from 'tuono'
 import type { TuonoLayoutProps } from 'tuono'
 
-import { ThemeProvider } from 'next-themes'
-
 import { PostHogProvider, PostHogPageView } from '@/components/PostHog'
 
 import App from '@/components/App'
 
 import '@/styles/global.scss'
+import { useTheme } from '@/hooks/useTheme'
 
 export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
+  const { theme } = useTheme()
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-theme={theme}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,10 +38,8 @@ export default function RootRoute({ children }: TuonoLayoutProps): JSX.Element {
       </head>
       <body>
         <PostHogProvider>
-          <ThemeProvider>
-            <PostHogPageView />
-            <App>{children}</App>
-          </ThemeProvider>
+          <PostHogPageView />
+          <App>{children}</App>
         </PostHogProvider>
         <TuonoScripts />
       </body>

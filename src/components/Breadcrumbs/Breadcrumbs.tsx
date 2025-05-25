@@ -7,8 +7,8 @@ import {
   Breadcrumbs as AriaBreadcrumbs,
 } from 'react-aria-components'
 
-import type { Page } from '@/components/ContentManager/ContentManagerContext'
-import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
+import { useContentManager } from '@/contexts/ContentManager'
+import type { Page } from '@/contexts/ContentManager'
 import { BreadcrumbsDivider } from '@/icons/breadcrumbs-divider'
 
 import styles from './Breadcrumbs.module.scss'

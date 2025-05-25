@@ -9,9 +9,9 @@ import {
   Button,
 } from 'react-aria-components'
 
-import { useContentManager } from '@/components/ContentManager/ContentManagerContext'
+import { useContentManager } from '@/contexts/ContentManager'
 import { IconArrow } from '@/icons'
-import type { Page } from '@/components/ContentManager/ContentManagerContext'
+import type { Page } from '@/contexts/ContentManager'
 
 import styles from './SideNavigation.module.scss'
 

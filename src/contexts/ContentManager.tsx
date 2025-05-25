@@ -133,8 +133,10 @@ export function ContentManagerProvider({
   )
 
   useEffect(() => {
-    setRelativePages(getPageLocation(navigationTree, pathname))
-  }, [pathname, navigationTree])
+    if (pathname !== relativePages.currentPage?.path) {
+      setRelativePages(getPageLocation(navigationTree, pathname))
+    }
+  }, [pathname, navigationTree, relativePages.currentPage?.path])
 
   const context: ContentManagerContextValue = useMemo(
     () => ({

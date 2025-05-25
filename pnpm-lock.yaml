@@ -17,9 +17,6 @@ importers:
       modern-normalize:
         specifier: 3.0.1
         version: 3.0.1
-      next-themes:
-        specifier: 0.4.6
-        version: 0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       posthog-js:
         specifier: 1.215.6
         version: 1.215.6
@@ -36,8 +33,11 @@ importers:
         specifier: 4.0.1
         version: 4.0.1
       tuono:
-        specifier: 0.19.6
-        version: 0.19.6(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+        specifier: 0.19.7
+        version: 0.19.7(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+      usehooks-ts:
+        specifier: 3.1.1
+        version: 3.1.1(react@19.0.0)
     devDependencies:
       '@eslint/js':
         specifier: 9.21.0
@@ -2108,6 +2108,9 @@ packages:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
@@ -2317,12 +2320,6 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
-
-  next-themes@0.4.6:
-    resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
-      react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
@@ -2861,16 +2858,16 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  tuono-react-vite-plugin@0.19.6:
-    resolution: {integrity: sha512-2m86KBigESk23UXiEA46hK53i5M5HG0tm8ob66qLFTmN+1ndR7i0UGlGki3+RTAyaJ/djFY3gUh1LtuLQjsx3Q==}
+  tuono-react-vite-plugin@0.19.7:
+    resolution: {integrity: sha512-QePLrY31kwhCjyvB/uaMDwtHmsqdAn7baKi3hzd/lyaHfLUzFFcs2MROSxtEgk4UEXJaUW3hnVTA9MPQwl/1Gw==}
 
-  tuono-router@0.19.6:
-    resolution: {integrity: sha512-JOL5vOXF6blQ1fFa8mrO1/ePznbTLsPA59ayGqp6WVbYgYblW3t4k4+FpJFX/cXfLQ/UyB4vW4yJwys67TN0lQ==}
+  tuono-router@0.19.7:
+    resolution: {integrity: sha512-QaME8UMNneiuyh1MrjGeAhHOhpk5NoI9ju4grL8HM9V+UJ5Fm9AWRPBbCp9gjtMyyaYBGcNN0D6TdrI2Na0+qw==}
     peerDependencies:
       react: '>=19.0.0'
 
-  tuono@0.19.6:
-    resolution: {integrity: sha512-JuL/rfyW2va93FhZZWN5p5ILW82nydZb5uAniNcW+oWX7I5OhHsvOjF4/RcLp650iSzDgaStHqxrwGIJi7vLmg==}
+  tuono@0.19.7:
+    resolution: {integrity: sha512-Zp7wbyW/NoNw9WE1IAUWQu24o0bSPJiYDFykeO2o2L5sG//RmlTRKmtrW8juEj48yGO/1JBQF10M9KapqTZHuA==}
     hasBin: true
     peerDependencies:
       react: '>=19.0.0'
@@ -2952,6 +2949,12 @@ packages:
     resolution: {integrity: sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  usehooks-ts@3.1.1:
+    resolution: {integrity: sha512-I4diPp9Cq6ieSUH2wu+fDAVQO43xwtulo+fKEidHUwZPnYImbtkTjzIJYcDcJqxgmX31GVqNFURodvcgHcW0pA==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -5713,6 +5716,8 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
+  lodash.debounce@4.0.8: {}
+
   lodash.merge@4.6.2: {}
 
   longest-streak@3.1.0: {}
@@ -6186,11 +6191,6 @@ snapshots:
   nanoid@3.3.8: {}
 
   natural-compare@1.4.0: {}
-
-  next-themes@0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
-    dependencies:
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
 
   node-releases@2.0.19: {}
 
@@ -6902,7 +6902,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tuono-react-vite-plugin@0.19.6(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
+  tuono-react-vite-plugin@0.19.7(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
     dependencies:
       '@babel/core': 7.26.8
       '@babel/types': 7.26.8
@@ -6922,14 +6922,14 @@ snapshots:
       - tsx
       - yaml
 
-  tuono-router@0.19.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  tuono-router@0.19.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-intersection-observer: 9.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     transitivePeerDependencies:
       - react-dom
 
-  tuono@0.19.6(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
+  tuono@0.19.7(@swc/helpers@0.5.17)(@types/node@22.13.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.6)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2)):
     dependencies:
       '@babel/core': 7.26.8
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
@@ -6939,8 +6939,8 @@ snapshots:
       fast-text-encoding: 1.0.6
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      tuono-react-vite-plugin: 0.19.6(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
-      tuono-router: 0.19.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      tuono-react-vite-plugin: 0.19.7(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
+      tuono-router: 0.19.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       url-search-params-polyfill: 8.2.5
       vite: 6.2.0(@types/node@22.13.10)(sass-embedded@1.86.0)(sugarss@4.0.1(postcss@8.5.2))
       web-streams-polyfill: 4.1.0
@@ -7069,6 +7069,11 @@ snapshots:
 
   use-sync-external-store@1.5.0(react@19.0.0):
     dependencies:
+      react: 19.0.0
+
+  usehooks-ts@3.1.1(react@19.0.0):
+    dependencies:
+      lodash.debounce: 4.0.8
       react: 19.0.0
 
   util-deprecate@1.0.2: {}

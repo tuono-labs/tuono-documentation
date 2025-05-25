@@ -4,9 +4,8 @@ import type { TuonoLayoutProps } from 'tuono'
 import { ResponsiveLayout } from '@/components/ResponsiveLayout/ResponsiveLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 
-import { ContentManagerProvider } from '@/components/ContentManager/ContentManagerContext'
-
-import type { Page } from '@/components/ContentManager/ContentManagerContext'
+import { ContentManagerProvider } from '@/contexts/ContentManager'
+import type { Page } from '@/contexts/ContentManager'
 
 // TODO: Add descriptions
 // TODO: Add seoTitles

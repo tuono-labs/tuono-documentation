@@ -1,7 +1,8 @@
 import type { ReactNode, JSX } from 'react'
 
-import { ContentManagerProvider } from '@/components/ContentManager/ContentManagerContext'
-import type { Page } from '@/components/ContentManager/ContentManagerContext'
+import { ContentManagerProvider } from '@/contexts/ContentManager'
+import type { Page } from '@/contexts/ContentManager'
+
 import { ResponsiveLayout } from '@/components/ResponsiveLayout/ResponsiveLayout'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 
