@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import cx from 'clsx'
-import { Link, useRouter } from 'tuono'
+import { Link } from 'tuono'
 import {
   Tree,
   TreeItem,
