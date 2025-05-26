@@ -21,7 +21,7 @@ export function MdxProvider({ children }: MdxProviderProps): JSX.Element {
           p: (props) => <p {...props} />,
           hr: () => <hr />,
           pre: (props) => <pre {...props} style={{ width: '100px' }} />,
-          code: (props) => <pre {...props} />,
+          code: (props) => <code {...props} />,
         }}
       >
         {children}

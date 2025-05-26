@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import cx from 'clsx'
-import { Link, useRouter } from 'tuono'
+import { Link } from 'tuono'
 import {
   Tree,
   TreeItem,
@@ -32,6 +32,9 @@ function TreeItemContent({
         href={page.path}
         className={cx(isActive && styles.active, 'body-2')}
         aria-label={page.title}
+        onClick={(e): void => {
+          e.preventDefault()
+        }}
       >
         {page.title}
       </Link>
@@ -45,7 +48,6 @@ function TreeItemContent({
 }
 
 function TreeBlock({ page }: { page: Page }): JSX.Element {
-  const router = useRouter()
   return (
     <div className={styles.block}>
       <h3 className={styles['block-title']}>{page.title}</h3>
@@ -57,9 +59,6 @@ function TreeBlock({ page }: { page: Page }): JSX.Element {
               id={subPage.path}
               key={subPage.path}
               className={styles['sub-page']}
-              onAction={(): void => {
-                router.push(subPage.path)
-              }}
             >
               <AriaTreeItemContent>
                 {({ hasChildItems }) => (
