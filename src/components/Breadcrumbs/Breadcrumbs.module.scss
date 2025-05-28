@@ -14,11 +14,14 @@
 
   & a {
     text-decoration: none;
+    position: relative;
+    top: -2px;
 
     &:last-child {
       @extend .semi-bold;
       pointer-events: none;
       color: var(--content-primary);
+      top: unset;
     }
   }
 }

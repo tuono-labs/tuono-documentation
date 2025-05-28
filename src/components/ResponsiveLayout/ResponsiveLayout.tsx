@@ -3,6 +3,7 @@ import type { ReactNode, JSX } from 'react'
 import { SideNavigation } from '@/components/SideNavigation'
 
 import styles from './ResponsiveLayout.module.scss'
+import { Breadcrumbs } from '../Breadcrumbs'
 
 interface ResponsiveLayoutProps {
   children: ReactNode
@@ -24,7 +25,10 @@ export function ResponsiveLayout({
           <SideNavigation />
         </aside>
       )}
-      <article className={styles.body}>{children}</article>
+      <article className={styles.body}>
+        <Breadcrumbs />
+        {children}
+      </article>
       <div className={styles.tableOfContents} />
     </div>
   )
