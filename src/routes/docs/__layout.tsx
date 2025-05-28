@@ -2,7 +2,6 @@ import type { JSX } from 'react'
 import type { TuonoLayoutProps } from 'tuono'
 
 import { ResponsiveLayout } from '@/components/ResponsiveLayout/ResponsiveLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 import { ContentManagerProvider } from '@/contexts/ContentManager'
 import type { Page } from '@/contexts/ContentManager'
@@ -271,10 +270,7 @@ export default function DocumentationLayout({
 }: TuonoLayoutProps): JSX.Element {
   return (
     <ContentManagerProvider navigationTree={documentationTree}>
-      <ResponsiveLayout>
-        <Breadcrumbs />
-        {children}
-      </ResponsiveLayout>
+      <ResponsiveLayout>{children}</ResponsiveLayout>
     </ContentManagerProvider>
   )
 }

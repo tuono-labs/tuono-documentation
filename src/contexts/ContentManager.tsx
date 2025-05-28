@@ -90,10 +90,19 @@ const ContentManagerContext = createContext<ContentManagerContextValue>({
   currentPageBreadcrumb: [],
 })
 
+const cleanPathname = (pathname: string): string => {
+  // Remove trailing slash if present
+  return pathname.endsWith('/') && pathname.length > 1
+    ? pathname.slice(0, -1)
+    : pathname
+}
+
 const getPageLocation = (
   navigationTree: NavigationTree,
   pathname: string,
 ): PageLocation => {
+  const cleanPath = cleanPathname(pathname)
+
   const flattenTree = (tree: Array<Page>): Array<Page> => {
     return tree.reduce<Array<Page>>((acc, page) => {
       acc.push(page)
@@ -106,9 +115,9 @@ const getPageLocation = (
 
   const pages = flattenTree(navigationTree)
 
-  const currentPageIndex = pages.findIndex((page) => page.path === pathname)
+  const currentPageIndex = pages.findIndex((page) => page.path === cleanPath)
   const currentPageBreadcrumb =
-    findPageAndParents(navigationTree, pathname) || []
+    findPageAndParents(navigationTree, cleanPath) || []
 
   return {
     currentPage: pages[currentPageIndex],
@@ -133,7 +142,7 @@ export function ContentManagerProvider({
   )
 
   useEffect(() => {
-    if (pathname !== relativePages.currentPage?.path) {
+    if (cleanPathname(pathname) !== relativePages.currentPage?.path) {
       setRelativePages(getPageLocation(navigationTree, pathname))
     }
   }, [pathname, navigationTree, relativePages.currentPage?.path])
