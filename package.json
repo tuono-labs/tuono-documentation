@@ -18,7 +18,7 @@
     "modern-normalize": "3.0.1",
     "posthog-js": "1.215.6",
     "react": "19.0.0",
-    "react-aria-components": "1.8.0",
+    "react-aria-components": "1.9.0",
     "react-dom": "19.0.0",
     "remark-gfm": "4.0.1",
     "tuono": "0.19.7",
