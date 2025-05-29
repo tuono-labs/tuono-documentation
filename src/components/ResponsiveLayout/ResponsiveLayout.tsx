@@ -4,6 +4,9 @@ import { SideNavigation } from '@/components/SideNavigation'
 
 import { Breadcrumbs } from '../Breadcrumbs'
 
+import { TableOfContents } from '../TableOfContents'
+import { ScrollArea } from '../ScrollArea'
+
 import styles from './ResponsiveLayout.module.scss'
 
 interface ResponsiveLayoutProps {
@@ -28,11 +31,15 @@ export function ResponsiveLayout({
           <SideNavigation />
         </aside>
       )}
-      <article className={styles.body}>
+      <article className={styles.body} id="mdx-root">
         {withBreadcrumbs && <Breadcrumbs />}
         {children}
       </article>
-      <div className={styles.tableOfContents} />
+      <div className={styles.tableOfContents}>
+        <ScrollArea>
+          <TableOfContents />
+        </ScrollArea>
+      </div>
     </div>
   )
 }
