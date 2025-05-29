@@ -1,3 +1,5 @@
+$inter-regular: 400;
+
 @mixin defaultInter {
   font-family: Inter, sans-serif;
 }
@@ -30,29 +32,29 @@
 .title-1 {
   @include defaultTitle;
 
-  line-height: 48px;
-  font-size: 58px;
+  line-height: 58px;
+  font-size: 48px;
 }
 
 .title-2 {
   @include defaultTitle;
 
-  line-height: 26px;
-  font-size: 32px;
+  line-height: 32px;
+  font-size: 26px;
 }
 
 .title-3 {
   @include defaultTitle;
 
-  line-height: 22px;
-  font-size: 26px;
+  line-height: 26px;
+  font-size: 22px;
 }
 
 .title-4 {
   @include defaultTitle;
 
-  line-height: 18px;
-  font-size: 22px;
+  line-height: 24px;
+  font-size: 18px;
 }
 
 .main-body {
@@ -66,7 +68,7 @@
 .body-1 {
   @include defaultInter;
 
-  font-weight: regular;
+  font-weight: $inter-regular;
   line-height: 24px;
   font-size: 16px;
 }
@@ -74,7 +76,7 @@
 .body-2 {
   @include defaultInter;
 
-  font-weight: regular;
+  font-weight: $inter-regular;
   line-height: 16px;
   font-size: 14px;
   letter-spacing: -0.01rem;
