@@ -7,6 +7,8 @@ export default function PoliciesLayout({
   children,
 }: TuonoLayoutProps): JSX.Element {
   return (
-    <ResponsiveLayout withSideNavigation={false}>{children}</ResponsiveLayout>
+    <ResponsiveLayout withSideNavigation={false} withBreadcrumbs={false}>
+      {children}
+    </ResponsiveLayout>
   )
 }

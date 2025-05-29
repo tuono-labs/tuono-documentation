@@ -4,7 +4,6 @@ import { ContentManagerProvider } from '@/contexts/ContentManager'
 import type { Page } from '@/contexts/ContentManager'
 
 import { ResponsiveLayout } from '@/components/ResponsiveLayout/ResponsiveLayout'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 // TODO: Add descriptions
 // TODO: Add seoTitles
@@ -82,10 +81,7 @@ export default function TutorialLayout({
 }: TutorialLayoutProps): JSX.Element {
   return (
     <ContentManagerProvider navigationTree={tutorialTree}>
-      <ResponsiveLayout>
-        <Breadcrumbs />
-        {children}
-      </ResponsiveLayout>
+      <ResponsiveLayout>{children}</ResponsiveLayout>
     </ContentManagerProvider>
   )
 }
