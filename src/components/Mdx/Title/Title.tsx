@@ -47,7 +47,8 @@ function getIdFrom(children: ReactNode): string {
 
 export const Title = (order: Order): ElementType<TitleProps> => {
   function Render(props: TitleProps): JSX.Element {
-    const hoverRef = useRef<HTMLDivElement>()
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const hoverRef = useRef<HTMLDivElement>(null!)
     const isHover = useHover(hoverRef)
 
     if (order === 1) {
