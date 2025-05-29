@@ -1,34 +1,32 @@
-import { useMemo, type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
+
 import { MDXProvider } from '@mdx-js/react'
+
+import { Title, Text } from '@/components/Mdx'
 
 interface MdxProviderProps {
   children: ReactNode
 }
 
 export function MdxProvider({ children }: MdxProviderProps): JSX.Element {
-  const Provider = useMemo(
-    () => (
-      <MDXProvider
-        components={{
-          a: (props) => <a {...props} />,
-          h1: (props) => <h1 {...props} />,
-          h2: (props) => <h2 {...props} />,
-          h3: (props) => <h3 {...props} />,
-          h4: (props) => <h4 {...props} />,
-          h5: (props) => <h5 {...props} />,
-          h6: (props) => <h6 {...props} />,
-          strong: (props) => <strong {...props} />,
-          p: (props) => <p {...props} />,
-          hr: () => <hr />,
-          pre: (props) => <pre {...props} style={{ width: '100px' }} />,
-          code: (props) => <code {...props} />,
-        }}
-      >
-        {children}
-      </MDXProvider>
-    ),
-    [children],
+  return (
+    <MDXProvider
+      components={{
+        a: (props) => <a {...props} />,
+        h1: Title(1),
+        h2: Title(2),
+        h3: Title(3),
+        h4: Title(4),
+        h5: Title(5),
+        h6: Title(6),
+        strong: (props) => <strong {...props} />,
+        p: Text,
+        hr: () => <hr />,
+        pre: (props) => <pre {...props} style={{ width: '100px' }} />,
+        code: (props) => <code {...props} />,
+      }}
+    >
+      {children}
+    </MDXProvider>
   )
-
-  return Provider
 }

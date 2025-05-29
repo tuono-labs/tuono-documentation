@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  scroll-margin: 80px;
+  width: fit-content;
+  margin: 0;
+}
+
+.title {
+  scroll-margin: 80px;
+  margin: 0;
+}
+
+.link {
+  display: inline-flex;
+  margin-left: 8px;
+  margin-bottom: 2px;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--content-primary);
+}
