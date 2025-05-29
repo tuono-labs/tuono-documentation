@@ -9,6 +9,7 @@ import styles from './ResponsiveLayout.module.scss'
 interface ResponsiveLayoutProps {
   children: ReactNode
   withSideNavigation?: boolean
+  withBreadcrumbs?: boolean
 }
 
 /**
@@ -18,6 +19,7 @@ interface ResponsiveLayoutProps {
 export function ResponsiveLayout({
   children,
   withSideNavigation = true,
+  withBreadcrumbs = true,
 }: ResponsiveLayoutProps): JSX.Element {
   return (
     <div className={styles.layout}>
@@ -27,7 +29,7 @@ export function ResponsiveLayout({
         </aside>
       )}
       <article className={styles.body}>
-        <Breadcrumbs />
+        {withBreadcrumbs && <Breadcrumbs />}
         {children}
       </article>
       <div className={styles.tableOfContents} />
