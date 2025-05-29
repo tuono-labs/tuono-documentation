@@ -45,10 +45,6 @@
 .tableOfContents {
   @include sidecontent;
 
-  & {
-    background-color: lightgray;
-  }
-
   @include up-to-xl {
     display: none;
   }

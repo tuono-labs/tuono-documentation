@@ -81,8 +81,13 @@ export function Heading({
   order,
   ...props
 }: TitleProps & { order: Order }): JSX.Element {
-  props.id = getIdFrom(props.children)
+  const headingId = getIdFrom(props.children)
+  props.id = headingId
   props.className = cx(`title-${Math.min(order, 4)}`, styles.title)
+  // @ts-expect-error -- custom data attribute
+  props['data-heading'] = order > 0 ? headingId : undefined
+  // @ts-expect-error -- custom data attribute
+  props['data-order'] = order > 0 ? order : undefined
 
   switch (order) {
     case 1:

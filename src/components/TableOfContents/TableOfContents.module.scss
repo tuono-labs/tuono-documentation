@@ -1,0 +1,22 @@
+.title {
+  margin: 0 0 12px;
+}
+
+.list {
+  border-left: 1px solid var(--border-primary);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+
+  .link {
+    color: var(--content-secondary);
+    text-decoration: none;
+  }
+
+  .activeLink {
+    color: var(--content-accent) !important;
+  }
+}
