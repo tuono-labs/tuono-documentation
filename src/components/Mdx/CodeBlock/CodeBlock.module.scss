@@ -1,0 +1,81 @@
+@use '@/styles/typography' as *;
+
+.wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border-secondary);
+  width: 100%;
+}
+
+.scrollArea {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.codeBlock {
+  @extend .code-1;
+
+  display: block;
+  min-width: fit-content;
+  padding: 12px;
+  margin: 0;
+  background-color: var(--elevation-low) !important;
+  font-family:
+    Menlo,
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    Liberation Mono,
+    Menlo,
+    monospace;
+
+  & code {
+    display: inline-block;
+  }
+}
+
+.scrollbar {
+  display: flex;
+  /* ensures no selection */
+  user-select: none;
+  /* disable browser handling of all panning and zooming gestures on touch devices */
+  touch-action: none;
+  padding: 2px;
+  background: transparent;
+  transition: background 160ms ease-out;
+
+  $scrollbar-size: 8px;
+
+  flex-direction: column;
+  height: $scrollbar-size;
+
+  &:hover {
+    background: var(--elevation-mid);
+  }
+
+  .thumb {
+    flex: 1;
+    background: var(--elevation-high);
+    border-radius: $scrollbar-size;
+    position: relative;
+
+    /* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+}

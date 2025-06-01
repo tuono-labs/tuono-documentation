@@ -2,7 +2,7 @@ import type { JSX, ReactNode } from 'react'
 
 import { MDXProvider } from '@mdx-js/react'
 
-import { Title, Text, InlineCode } from '@/components/Mdx'
+import { Title, Text, InlineCode, CodeBlock } from '@/components/Mdx'
 
 interface MdxProviderProps {
   children: ReactNode
@@ -22,7 +22,7 @@ export function MdxProvider({ children }: MdxProviderProps): JSX.Element {
         strong: (props) => <strong {...props} />,
         p: Text,
         hr: () => <hr />,
-        pre: (props) => <pre {...props} style={{ width: '100px' }} />,
+        pre: CodeBlock,
         code: InlineCode,
       }}
     >
