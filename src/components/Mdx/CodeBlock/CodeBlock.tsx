@@ -14,7 +14,6 @@ import { useTheme } from '@/hooks/useTheme'
 import githubDark from './themes/github-dark'
 import githubLight from './themes/github-light'
 
-
 import styles from './CodeBlock.module.scss'
 
 interface CodeBlockProps {
