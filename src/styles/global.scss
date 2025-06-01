@@ -21,8 +21,13 @@
   --content-accent-low-contrast: #9747ff33; // #{$purple200} with 20% opacity;
 
   --border-primary: #{$gray400};
+  --border-secondary: #{$gray500};
 
   --background-primary: #{$gray800};
+
+  --elevation-low: #{$gray500};
+  --elevation-mid: #{$gray400};
+  --elevation-high: #{$gray200};
 }
 
 :root[data-theme='light'] {
@@ -35,8 +40,13 @@
   --content-accent-low-contrast: #{$purple100};
 
   --border-primary: #{$gray100};
+  --border-secondary: #{$gray100};
 
   --background-primary: #{$white};
+
+  --elevation-low: #{$white};
+  --elevation-mid: #{$gray200};
+  --elevation-high: #{$gray300};
 }
 
 body {
