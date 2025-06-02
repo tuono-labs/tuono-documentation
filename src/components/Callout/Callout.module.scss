@@ -1,0 +1,18 @@
+@use '@/styles/typography' as *;
+
+.callout {
+  @extend .body-1;
+
+  position: relative;
+  max-width: 100%;
+  height: fit-content;
+  padding: 12px;
+  background-color: transparent;
+  margin: 0;
+  border: solid 1px var(--border-primary);
+  color: var(--content-secondary);
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
