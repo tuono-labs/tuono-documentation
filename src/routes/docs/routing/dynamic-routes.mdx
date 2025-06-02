@@ -33,7 +33,11 @@ you can use a dynamic segment to define the post page: `src/routes/blog/[slug].t
 
 The `[slug]` is the dynamic segment which will be used to identify individual blog posts.
 
-```tsx
+import { CodeBlock } from '@/components/CodeBlock'
+
+<CodeBlock fileName="src/routes/blog/[slug].tsx" language="typescriptreact"
+showLineNumbers>
+```
 import { useRouter } from 'tuono'
 
 export default function Page() {
@@ -41,6 +45,7 @@ export default function Page() {
   return <p>Post: {router.pathname}</p>
 }
 ```
+</CodeBlock>
 
 ## Catch all segments
 

@@ -24,10 +24,11 @@
   --border-secondary: #{$gray500};
 
   --background-primary: #{$gray800};
+  --background-primary-opposite: #{$gray100};
 
   --elevation-low: #{$gray500};
-  --elevation-mid: #{$gray400};
-  --elevation-high: #{$gray200};
+  --elevation-mid: #{$gray700};
+  --elevation-high: #{$gray800};
 }
 
 :root[data-theme='light'] {
@@ -43,6 +44,7 @@
   --border-secondary: #{$gray100};
 
   --background-primary: #{$white};
+  --background-primary-opposite: #{$gray600};
 
   --elevation-low: #{$white};
   --elevation-mid: #{$gray200};

@@ -1,0 +1,31 @@
+@use '@/styles/typography' as *;
+
+.fileName {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  padding-left: 12px;
+  justify-content: space-between;
+  background-color: var(--elevation-mid);
+
+  p {
+    @extend .caption-code;
+    color: var(--content-secondary);
+    margin: 0;
+  }
+
+  .copyBtn {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    margin: 0;
+    border: solid 1px var(--border-secondary);
+    background-color: var(--elevation-low);
+
+    .copyIcon {
+      margin-left: -1px;
+      color: var(--content-secondary);
+    }
+  }
+}

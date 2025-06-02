@@ -94,16 +94,16 @@ $inter-regular: 400;
   @include defaultInter;
 
   font-weight: regular;
-  line-height: 12px;
-  font-size: 14px;
+  line-height: 14px;
+  font-size: 12px;
 }
 
 .caption-code {
   @include defaultCode;
 
   font-weight: regular;
-  line-height: 11px;
-  font-size: 18px;
+  line-height: 18px;
+  font-size: 11px;
 }
 
 /* Text Modifiers */
