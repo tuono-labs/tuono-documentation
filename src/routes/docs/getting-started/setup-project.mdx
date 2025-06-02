@@ -1,5 +1,6 @@
 import MetaTags from '@/components/MetaTags'
 import { CodeBlock } from '@/components/CodeBlock'
+import { Callout } from '@/components/Callout'
 
 <MetaTags
   title="Tuono - Setup project"
@@ -17,7 +18,10 @@ Tuono supports creating a new project from scratch using the `tuono new` CLI com
   ``` tuono new my-first-tuono-app ```
 </CodeBlock>
 
-> 💡 You can optionally pass the --template (or -t) flag to directly start from a [template](https://github.com/tuono-labs/tuono/tree/main/examples)
+<Callout level="info">
+  You can optionally pass the --template (or -t) flag to directly start from a
+  [template](https://github.com/tuono-labs/tuono/tree/main/examples)
+</Callout>
 
 Once the `tuono new` command finishes, move into the newly created folder.
 

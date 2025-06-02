@@ -2,6 +2,8 @@ import type { JSX, ReactNode } from 'react'
 
 import { MDXProvider } from '@mdx-js/react'
 
+import { Callout } from '@/components/Callout'
+
 import { Title, Text, InlineCode, CodeBlock } from '@/components/Mdx'
 
 interface MdxProviderProps {
@@ -24,6 +26,7 @@ export function MdxProvider({ children }: MdxProviderProps): JSX.Element {
         hr: () => <hr />,
         pre: CodeBlock,
         code: InlineCode,
+        blockquote: Callout,
       }}
     >
       {children}
