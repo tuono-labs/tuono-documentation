@@ -1,4 +1,5 @@
 import MetaTags from '@/components/MetaTags'
+import { CodeBlock } from '@/components/CodeBlock'
 
 <MetaTags
   title="Tuono - Installation"
@@ -24,15 +25,15 @@ To work with Tuono, you'll need to have the following tools installed on your co
 
 The tuono `CLI` is hosted on [crates.io](https://crates.io/crates/tuono) to download and install it, just run it on a terminal:
 
-```sh
-cargo install tuono
-```
+<CodeBlock fileName="terminal" language="plaintext">
+  ``` cargo install tuono ```
+</CodeBlock>
 
 To check that it is correctly installed, run:
 
-```sh
-tuono --version
-```
+<CodeBlock fileName="terminal" language="plaintext">
+  ``` tuono --version ```
+</CodeBlock>
 
 Run `tuono -h` to see all the available commands.
 

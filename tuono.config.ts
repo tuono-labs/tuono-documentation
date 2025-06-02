@@ -7,6 +7,9 @@ const config: TuonoConfig = {
     alias: {
       '@': 'src',
     },
+    optimizeDeps: {
+      include: ['react-syntax-highlighter'],
+    },
     plugins: [
       {
         enforce: 'pre',

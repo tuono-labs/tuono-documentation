@@ -1,0 +1,10 @@
+@use '@/styles/typography' as *;
+
+.tooltip {
+  @extend .caption;
+
+  background-color: var(--background-primary-opposite);
+  color: var(--content-primary-opposite);
+  padding: 8px;
+  border-radius: 8px;
+}

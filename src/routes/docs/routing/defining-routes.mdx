@@ -21,11 +21,16 @@ Every page is rendered server side by default.
 Example:
 If you create `src/routes/about.tsx` that exports a React component like:
 
-```tsx
+import { CodeBlock } from '@/components/CodeBlock'
+
+<CodeBlock fileName="src/routes/about.tsx" language="typescriptreact"
+showLineNumbers>
+```
 export default function About() {
   return <div>About</div>
 }
 ```
+</CodeBlock>
 
 The `About` component will be rendered when loading `/about` route.
 
