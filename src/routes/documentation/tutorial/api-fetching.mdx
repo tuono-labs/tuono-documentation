@@ -62,7 +62,7 @@ async fn get_all_pokemons(_req: Request, fetch: Client) -> Response {
 
 After doing this, the terminal will complain for two reasons:
 
-1. We haven't imported the `reqwest` crate
+1. We haven't added the `reqwest` or `serde` crates
 2. The second argument `fetch: Client` hasn't been defined as global state yet.
 
 Let's fix these errors in the next section.
@@ -75,10 +75,11 @@ You can load them in the `ApplicationState` inside the `./src/app.rs` file. This
 
 > For the tutorial we will use [Reqwest](https://docs.rs/reqwest/latest/reqwest/), which is one of the most popular HTTP libraries.
 
-To install it, run this command in your terminal:
+To install it, run these commands in your terminal:
 
 ```sh
-cargo add reqwest
+cargo add reqwest --features json
+cargo add serde --features derive
 ```
 
 A new entry was added to your `Cargo.toml` file.
@@ -87,7 +88,7 @@ A new entry was added to your `Cargo.toml` file.
 [package]
 name = "tuono"
 version = "0.0.1"
-edition = "2021"
+edition = "2024"
 
 [[bin]]
 name = "tuono"
@@ -95,8 +96,8 @@ path = ".tuono/main.rs"
 
 [dependencies]
 tuono_lib = "0.14.0" # the version might be different
-serde = { version = "1.0.202", features = ["derive"] }
-++ reqwest = "0.12.9" # the version might be different
+++ serde = {version="1.0.228", features = ["derive"] }
+++ reqwest = { version = "0.13.1", features = ["json"] } # the version might be different
 ```
 
 > The `Cargo.toml` file is the manifest of your application and contains Rust's dependencies
